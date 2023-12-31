@@ -1,0 +1,37 @@
+@import "../../Styles";
+.goal{
+  &_container{
+    width: 70%;
+   margin: 0px auto 20px auto;
+  }
+  &_elem1{
+    width: 100%;
+    background-color:$red ;
+    height: 70px;
+    display: flex;
+
+  }
+
+  &_elem2{
+
+    width: 100%;
+    background-color:$green ;
+    height: 500px;
+    display: flex;
+  }
+
+  &_elem3{
+    width: 100%;
+    background-color:$red ;
+    height: 70px;
+    display: flex;
+  }
+  &Title{
+      color: #FFFFFF;
+      font-size: 30px;
+      margin: auto;
+      display: block;
+      width: fit-content;
+      height: fit-content;
+    }
+}

@@ -1,0 +1,9 @@
+@import "./Styles";
+.App {
+    background-color: $default;
+  width: 100%;
+  height: max-content;
+
+  position: relative;
+  min-height: 100vh;
+ }

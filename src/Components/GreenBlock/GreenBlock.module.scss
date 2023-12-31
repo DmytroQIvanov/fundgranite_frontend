@@ -1,0 +1,31 @@
+@import "../../Styles";
+.greenBlock{
+  width: 100%;
+  background-color: $green;
+  display: block;
+  height: 500px;
+  &_container{
+    width: 70%;
+    margin: auto;
+    padding: 30px 0 30px 0;
+
+  }
+  &_line{
+    height: 4px;
+    background-color: white;
+    border-radius: 4px;
+  }
+
+  &_title{
+    font-size: 30px;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  &_description{
+    margin: 30px 0px;
+    color: white;
+    font-size: 18px;
+  }
+
+}

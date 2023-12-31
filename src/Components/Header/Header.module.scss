@@ -1,0 +1,48 @@
+@import "../../Styles";
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  &_container {
+    display: flex;
+    background-color: $green;
+  }
+  &_logo {
+    margin: auto 5px auto 5px;
+    z-index: 100;
+    fill: aliceblue;
+    color: aliceblue;
+  }
+  &_linksContainer {
+    display: flex;
+    margin: auto 20px auto auto;
+    gap: 30px;
+  }
+  &_link {
+    &Active a{
+        text-decoration: underline !important;
+    }
+    &Inactive a{
+        text-decoration: none !important;
+    }
+    a {
+      font-size: 20px;
+      color: white;
+    }
+  }
+
+  &_bottom {
+    width: 100%;
+    height: 5px;
+    background-color: $brown;
+  }
+}
+
+.headerMock {
+  z-index: 0;
+  width: 100%;
+  height: 70px;
+  display: block;
+  position: relative;
+  //position: block;
+}

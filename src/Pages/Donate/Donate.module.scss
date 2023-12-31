@@ -1,0 +1,46 @@
+@import "../../Styles";
+.donate{
+  &_container{
+    width: 70%;
+    padding: 20px 10px 20px 10px;
+    margin: auto;
+    background-color: $default_dark;
+    border-radius: 10px;
+  }
+  &_title{
+    color: white;
+    font-size: 20px;
+  }
+  &_line{
+    height: 4px;
+    background-color: white;
+    border-radius: 4px;
+    margin: 15px;
+  }
+  &_valueBlock_container{
+    display: flex;
+    gap: 10px;
+    margin: 10px 0px;
+  }
+  &_valueBlock{
+    border-radius: 5px;
+    border: 1px solid $red;
+    background-color: $red;
+    cursor: pointer;
+    color: white;
+    padding: 10px 20px ;
+    display: flex;
+    width: 90px;
+    position: relative;
+    &Title{
+      margin: auto;
+    }
+    &_icon{
+      margin: auto 20px auto 10px;
+    }
+  }
+  &_gooleDonate{
+    width: max-content;
+    margin: auto;
+  }
+}
