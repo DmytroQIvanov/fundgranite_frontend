@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Goal.module.scss";
+import Link from "../Header/Link";
 
 const Goal = () => {
   return (
@@ -12,6 +13,12 @@ const Goal = () => {
         <div className={styles.goal_elem3}>
           <span className={styles.goalTitle}>ПЕРЕМОЖЕМО РАЗОМ</span>
         </div>
+
+        <Link link={"/donate"}>
+          <div className={styles.goal_elem3} style={{ marginTop: "30px" }}>
+            <span className={styles.goalTitle}>ПІДТРИМАТИ</span>
+          </div>
+        </Link>
       </div>
     </article>
   );
