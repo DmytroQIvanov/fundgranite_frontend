@@ -1,4 +1,6 @@
 @import "../../Styles";
+@import "../../screens";
+
 .goal{
   &_container{
     width: 70%;
@@ -34,4 +36,15 @@
       width: fit-content;
       height: fit-content;
     }
+
+
+    @media screen and (max-width: $small) {
+
+  &_container{
+    width: 85%;
+   margin: 0px auto 20px auto;
+  }
+    }
+
+  @media screen and (max-width: $medium) {}
 }

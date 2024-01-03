@@ -80,31 +80,31 @@ const DonatePage = () => {
                   <img
                     className={styles.donate_valueBlock_icon}
                     src={moneySVG}
-                    width={30}
+                    // width={30}
                     color={"white"}
                   />
-                  {index >= 1 && (
-                    <img
-                      className={styles.donate_valueBlock_icon}
-                      style={{
-                        position: "absolute",
-                        right: "5px",
-                        width: "25px",
-                      }}
-                      src={moneySVG}
-                    />
-                  )}
-                  {index >= 2 && (
-                    <img
-                      className={styles.donate_valueBlock_icon}
-                      style={{
-                        position: "absolute",
-                        right: "-5px",
-                        width: "20px",
-                      }}
-                      src={moneySVG}
-                    />
-                  )}
+                  {/*{index >= 1 && (*/}
+                  {/*  <img*/}
+                  {/*    className={styles.donate_valueBlock_icon}*/}
+                  {/*    style={{*/}
+                  {/*      position: "absolute",*/}
+                  {/*      right: "5px",*/}
+                  {/*      width: "25px",*/}
+                  {/*    }}*/}
+                  {/*    src={moneySVG}*/}
+                  {/*  />*/}
+                  {/*)}*/}
+                  {/*{index >= 2 && (*/}
+                  {/*  <img*/}
+                  {/*    className={styles.donate_valueBlock_icon}*/}
+                  {/*    style={{*/}
+                  {/*      position: "absolute",*/}
+                  {/*      right: "-5px",*/}
+                  {/*      width: "20px",*/}
+                  {/*    }}*/}
+                  {/*    src={moneySVG}*/}
+                  {/*  />*/}
+                  {/*)}*/}
                 </div>
               );
             })}

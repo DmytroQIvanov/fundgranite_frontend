@@ -1,4 +1,6 @@
 @import "../../Styles";
+@import "../../screens";
+
 .greenBlock{
   width: 100%;
   background-color: $green;
@@ -27,5 +29,17 @@
     color: white;
     font-size: 18px;
   }
+  @media screen and (max-width: $small) {
+
+  &_container {
+    width: 85%;
+  }
+  &_description{
+
+    font-size: 14px;
+  }
+  }
+
+  @media screen and (max-width: $medium) {}
 
 }
