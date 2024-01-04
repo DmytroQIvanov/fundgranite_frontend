@@ -1,0 +1,20 @@
+@import "../../Styles";
+.subHeader {
+  margin: auto;
+  width: 90%;
+  background-color: $green;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  &_container {
+    width: min-content;
+    margin: auto;
+    display: flex;
+    color: white;
+    gap: 20px;
+    img{
+      width: 140px;
+      margin-bottom: 4px;
+    }
+  }
+}

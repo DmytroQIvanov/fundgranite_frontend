@@ -1,8 +1,21 @@
 @import "../../Styles";
 @import "../../screens";
 .donate{
+
+  ::-moz-selection {
+    //background-color: yellow;
+    background-color: $brown;
+    color: black;
+    border-radius: 5px;
+  }
+  ::selection {
+    background-color: $brown;
+    //background-color: $brown;
+    color: white;
+    border-radius: 5px;
+  }
   &_container{
-    width: 70%;
+    width: 80%;
     padding: 20px 10px 20px 10px;
     margin: auto;
     background-color: $default_dark;
@@ -10,7 +23,8 @@
   }
   &_title{
     color: white;
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: bolder;
   }
   &_line{
     height: 4px;
@@ -24,15 +38,25 @@
     margin: 10px 0px;
   }
   &_valueBlock{
-    border-radius: 5px;
-    border: 1px solid $red;
-    background-color: $red;
+    border-radius: 13px;
+    border: 3px solid #505050;
+    background-color: $white;
     cursor: pointer;
-    color: white;
+    color: #505050;
     padding: 10px 20px ;
     display: flex;
     width: 100%;
+    font-size: 26px;
+    font-weight: bolder;
     position: relative;
+      font-family: "Agency FB";
+
+    &_active{
+      color: white;
+      border: 3px solid #d5d5d5;
+      background-color: $green
+    }
+
     &Title{
       margin: auto;
     }
@@ -45,6 +69,16 @@
   &_gooleDonate{
     width: max-content;
     margin: auto;
+  }
+
+  &_props{
+    &Number{
+      display: flex;
+      span{
+        margin: auto;
+      }
+      //margin: auto;
+    }
   }
 
   @media screen and (max-width: $small) {

@@ -1,0 +1,24 @@
+{
+  "hello": "Hello222221111111",
+  "cancel": "Cancel",
+  "continue": "Comtinue",
+
+  "header": {
+    "main": "Home",
+    "aboutUs": "About us",
+    "donate": "Donate",
+    "blog": "Blog"
+  },
+
+  "donate": {
+    "chooseCurrency": "Choose currency",
+    "chooseValue": "Choose value",
+    "recipientCode": "Recipient code",
+    "recipientBank": "Recipient's bank",
+    "detailsForTransfersInNationalCurrency": "Details for transfers in national currency",
+    "detailsForTransfersInForeignCurrency": "Details for transfers in foreign currency"
+  },
+  "main": {
+    "support": "Support"
+  }
+}

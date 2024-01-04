@@ -1,0 +1,24 @@
+{
+  "hello": "Hell222222222o",
+  "cancel": "Cancel",
+  "continue": "Comtinue",
+
+   "header": {
+    "main": "Головна",
+    "aboutUs": "Про нас",
+    "donate": "Зробити внесок",
+    "blog": "Блог"
+  },
+
+  "donate": {
+    "chooseCurrency": "Оберіть валюту",
+    "chooseValue": "Оберіть суму",
+    "recipientCode": "Код Одержувача",
+    "recipientBank": "Банк Одержувача",
+    "detailsForTransfersInNationalCurrency": "Реквізити для переказів у національній валюті",
+    "detailsForTransfersInForeignCurrency": "Реквізити для переказів в іноземній валюті"
+  },
+  "main": {
+    "support": "Підтримати"
+  }
+}

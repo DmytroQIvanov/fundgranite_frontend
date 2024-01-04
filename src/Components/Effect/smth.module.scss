@@ -1,0 +1,91 @@
+@import "../../mixins";
+@import "../../screens";
+.effect{
+
+  height: 900px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  clip-path: inset(0 0 0 0);
+
+
+  &_container{}
+  &_absoluteBackground{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 10px;
+    z-index: 0;
+    img{
+      margin-top: 70px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+  }
+
+  &_borderElement{
+    &Top{
+      position: absolute;
+      top:0px;
+      background-color: #3B5A45;
+      width: 100%;
+      display: flex;
+      height: 250px;
+      background-color: #3B5A45;
+      z-index: 2;
+
+
+    };
+    &Bottom{
+
+      position: absolute;
+      bottom:0px;
+      background-color: #3B5A45;
+      width: 100%;
+      display: flex;
+      height: 250px;
+      background-color: #3B5A45;
+      z-index: 1;
+    };
+    &Content{
+      color: white;
+      @include insideBorderPC
+    }
+  }
+  @media screen and (max-width: $medium) {
+  height: 1200px;
+
+    &_borderElement{
+    &Top{
+      height: 300px;
+    };
+    &Bottom{
+
+      height: 300px;
+    };
+    &Content{
+      @include insideBorderMobile
+    }
+  }
+  }
+
+   @media screen and (max-width: $small) {
+
+    &_borderElement{
+    &Top{
+      height: 400px;
+    };
+    &Bottom{
+
+      height: 400px;
+    };
+    &Content{
+      @include insideBorderMobile
+    }
+  }
+  }
+
+
+}

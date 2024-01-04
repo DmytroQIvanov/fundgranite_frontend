@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import FooterComponent from "./Components/Footer";
 import Goal from "./Components/Goal";
-import PageWrapper from "./Components/PageWrapper";
+import PageWrapper from "./Components/ReComponents/PageWrapper";
 import DonatePage from "./Pages/Donate";
 import HomePage from "./Pages/Home";
 
@@ -18,7 +18,7 @@ const Router = () => {
     {
       path: "/",
       element: (
-        <PageWrapper header footer>
+        <PageWrapper header footer subheaderLogo>
           <HomePage />
         </PageWrapper>
       ),
@@ -35,6 +35,11 @@ const Router = () => {
 
     {
       path: "/aboutUs",
+      element: <PageWrapper header footer></PageWrapper>,
+    },
+
+    {
+      path: "/blog",
       element: <PageWrapper header footer></PageWrapper>,
     },
   ]);

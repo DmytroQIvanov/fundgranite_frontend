@@ -1,0 +1,9 @@
+@mixin insideBorderPC {
+  width: 80%;
+  margin: 20px auto 20px auto;
+}
+
+@mixin insideBorderMobile {
+  width: 90%;
+  margin: auto;
+}

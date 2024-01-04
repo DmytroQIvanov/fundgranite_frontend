@@ -1,50 +1,62 @@
 @import "../../Styles";
 @import "../../screens";
 
-.goal{
-  &_container{
-    width: 70%;
-   margin: 0px auto 20px auto;
+.goal {
+  margin-bottom: 100px;
+  &_container {
+    width: 80%;
+    margin: 0px auto 20px auto;
   }
-  &_elem1{
+  &_elem1 {
     width: 100%;
-    background-color:$red ;
+    background-color: $red;
     height: 70px;
     display: flex;
-
   }
 
-  &_elem2{
-
+  &_elem2 {
     width: 100%;
-    background-color:$green ;
+    background-color: $green;
     height: 500px;
     display: flex;
+    margin: auto;
+    font-size: 20px;
+    color: white;
+    span {
+      margin: 20px 40px 20px 40px;
+    }
   }
 
-  &_elem3{
+  &_elem3 {
     width: 100%;
-    background-color:$red ;
+    background-color: $red;
     height: 70px;
     display: flex;
-  }
-  &Title{
-      color: #FFFFFF;
-      font-size: 30px;
-      margin: auto;
-      display: block;
-      width: fit-content;
-      height: fit-content;
+
+    a {
+      text-decoration: none !important;
     }
-
-
-    @media screen and (max-width: $small) {
-
-  &_container{
-    width: 85%;
-   margin: 0px auto 20px auto;
   }
-    }
+  &Title {
+    color: white;
 
-  @media screen and (max-width: $medium) {}
+    font-size: 30px;
+    margin: auto;
+    display: block;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  @media screen and (max-width: $small) {
+    &_container {
+      width: 85%;
+      margin: 0px auto 20px auto;
+    }
+  &_elem2 {
+    font-size: 18px;
+  }
+  }
+
+  @media screen and (max-width: $medium) {
+  }
 }

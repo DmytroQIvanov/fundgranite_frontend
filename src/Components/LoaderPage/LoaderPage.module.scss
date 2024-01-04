@@ -1,0 +1,33 @@
+@import "../../Styles";
+.loaderPage {
+  background-color: $green;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  &_logoDivContainer {
+    height: 100%;
+    //width: max-content;
+    //height: max-content;
+    justify-content: center;
+    display: flex;
+    align-items: center; //display: flex;
+  }
+  &_logoDiv {
+    width: min-content;
+    height: min-content;
+    display: flex;
+    color: white;
+    gap: 30px;
+    h1 {
+      margin: auto;
+    }
+    img {
+      width: 200px;
+    }
+  }
+}
