@@ -88,4 +88,10 @@
   display: block;
   position: relative;
   //position: block;
+
+   @media screen and (max-width: $small) {
+  height: 75px;
+
+
+   }
 }

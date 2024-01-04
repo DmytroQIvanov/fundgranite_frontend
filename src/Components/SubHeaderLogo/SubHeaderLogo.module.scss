@@ -1,4 +1,5 @@
 @import "../../Styles";
+@import "../../screens";
 .subHeader {
   margin: auto;
   width: 90%;
@@ -17,4 +18,10 @@
       margin-bottom: 4px;
     }
   }
+
+   @media screen and (max-width: $small) {
+
+
+   }
+
 }
