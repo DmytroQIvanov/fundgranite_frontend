@@ -39,7 +39,7 @@ function App() {
           title={"Granit Fund"}
           description={"Фонд для збору коштів"}
           keywords={
-            "Фонд, Граніт фонд, форпост, граніт, fund, ЗСУ, дрони, волонтери, волонтерство, збір, разом переможемо, внесок, Fund, Granite Fund, fund, Armed Forces of Ukraine, drones, volunteers, volunteering, collection, together we will win, contribution"
+            "Фонд, Граніт фонд, форпост, граніт, fund, ЗСУ, дрони, волонтери, волонтерство, збір, Україна, Ukraine, разом переможемо, внесок, Fund, Granite Fund, fund, Armed Forces of Ukraine, drones, volunteers, volunteering, collection, together we will win, contribution"
           }
         >
           <Router />
