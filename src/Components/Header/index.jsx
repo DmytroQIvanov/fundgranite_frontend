@@ -29,7 +29,7 @@ const Header = () => {
       <header className={styles.header}>
         <div className={styles.header_container}>
           <div className={styles.header_logo}>
-            <img src={logo} width={60} height={65} alt={"Logo"} />
+            <img src={logo} width={60} height={65} alt={"Fund Granite logo"} />
           </div>
           <h1
             style={{ color: "white", marginLeft: "10px" }}
@@ -37,7 +37,11 @@ const Header = () => {
           >
             FUND GRANITE
           </h1>
-
+          <div className={styles.header_sidebarIcon} onClick={() => {}}>
+            <div className={styles.header_sidebarIconDiv} />
+            <div className={styles.header_sidebarIconDiv} />
+            <div className={styles.header_sidebarIconDiv} />
+          </div>
           <div className={styles.header_linksContainer}>
             <select
               defaultValue={"es"}

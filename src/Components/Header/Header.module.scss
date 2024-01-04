@@ -55,9 +55,25 @@
   }
   &_title {
   }
+  &_sidebar{
+  &Icon{
+    margin: auto 15px auto auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px ;
+      &Div{
+        width: 32px;
+        height: 3px;
+        background-color: white;
+        border-radius: 4px;
+      }
+  }
+
+  }
   @media screen and (max-width: $medium) {
     &_title {
       font-size: 24px;
+      margin: auto;
     }
     &_linksContainer {
       display: none;
