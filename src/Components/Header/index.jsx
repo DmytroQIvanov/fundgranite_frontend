@@ -73,6 +73,7 @@ const Header = () => {
               gap: "6px",
               cursor: "pointer",
             }}
+            className={"prevent-select"}
           >
             {LANGUAGES.map((elem, index) => {
               return (
@@ -131,6 +132,7 @@ const Header = () => {
       <MobileSidebar
         sidebarState={sidebarState}
         setSidebarState={setSidebarState}
+        links={LINKS}
       />
     </div>
   );

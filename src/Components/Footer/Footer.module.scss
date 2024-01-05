@@ -28,9 +28,18 @@
   }
 
   @media screen and (max-width: $small) {
+  &_container {
+    height: 240px;
+  }
     &_innerContainer {
-      font-size: 14px;
+      font-size: 13px;
       margin: auto 5% auto 5%;
+    }
+    &_elem1{
+      display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.1fr 0.1fr 0.1fr;
+
     }
   }
   @media screen and (max-width: $medium) {

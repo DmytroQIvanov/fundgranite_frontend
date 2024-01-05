@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import styles from "./MobileSidebar.module.scss";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-const MobileSidebar = ({ sidebarState, setSidebarState }) => {
+const MobileSidebar = ({ sidebarState, setSidebarState, links }) => {
+  const { t } = useTranslation();
+
+  const onLinkClick = () => {
+    setSidebarState(false);
+  };
   return (
     <div className={styles.mobileSidebar}>
       <div
@@ -10,7 +17,21 @@ const MobileSidebar = ({ sidebarState, setSidebarState }) => {
             ? styles.mobileSidebar_mainContainerActive
             : styles.mobileSidebar_mainContainerInactive
         }`}
-      ></div>
+      >
+        <div className={styles.mobileSidebar_linksContainer}>
+          {links.map((elem, index) => {
+            return (
+              <Link
+                to={elem.link}
+                onClick={onLinkClick}
+                className={"prevent-select"}
+              >
+                {t(elem.text)}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
       <div
         className={`${styles.mobileSidebar_background} ${
           sidebarState
