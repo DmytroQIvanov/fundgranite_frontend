@@ -28,24 +28,24 @@
     //background-color: $default;
     padding: 15px 7px;
     margin: auto;
-    transition-duration: .3s;
+    transition-duration: 0.3s;
 
     &:hover {
       background-color: $green_darker;
     }
     &Active {
-        margin: auto;
+      margin: auto;
       border-bottom: 4px solid #9c9286;
       background-color: $green_dark;
-        //text-decoration: underline !important;
+      //text-decoration: underline !important;
     }
     &Inactive {
-        margin: auto;
-        //text-decoration: none !important;
+      margin: auto;
+      //text-decoration: none !important;
     }
-      font-size: 20px;
-      color: white;
-      text-decoration: none !important;
+    font-size: 20px;
+    color: white;
+    text-decoration: none !important;
   }
 
   &_bottom {
@@ -55,22 +55,21 @@
   }
   &_title {
   }
-  &_sidebar{
-  &Icon{
-    margin: auto 15px auto auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px ;
-      &Div{
-        width: 32px;
-        height: 3px;
-        background-color: white;
-        border-radius: 4px;
-      }
-  }
-
-  }
   @media screen and (max-width: $medium) {
+    &_sidebar {
+      &Icon {
+        margin: auto 15px auto auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        &Div {
+          width: 32px;
+          height: 3px;
+          background-color: white;
+          border-radius: 4px;
+        }
+      }
+    }
     &_title {
       font-size: 24px;
       margin: auto;
@@ -89,9 +88,7 @@
   position: relative;
   //position: block;
 
-   @media screen and (max-width: $small) {
-  height: 75px;
-
-
-   }
+  @media screen and (max-width: $small) {
+    height: 75px;
+  }
 }

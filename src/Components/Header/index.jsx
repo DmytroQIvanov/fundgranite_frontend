@@ -3,6 +3,7 @@ import styles from "./Header.module.scss";
 import logo from "../../Assets/LOGO.svg";
 import Link from "./Link";
 import { useTranslation } from "react-i18next";
+import MobileSidebar from "../MobileSidebar";
 
 const LANGUAGES = [
   {
@@ -14,8 +15,31 @@ const LANGUAGES = [
     code: "ua",
   },
 ];
+
+const LINKS = [
+  {
+    link: "/",
+    text: "header.main",
+  },
+  {
+    link: "/aboutUs",
+    text: "header.aboutUs",
+  },
+  {
+    link: "/donate",
+    text: "header.donate",
+    style: { fontFamily: "roboto" },
+    underline: true,
+  },
+  {
+    link: "/blog",
+    text: "header.blog",
+  },
+];
 const Header = () => {
   const [selectedLanguage, setSelectedLanguage] = useState();
+  const [sidebarState, setSidebarState] = useState(false);
+
   const { t, i18n } = useTranslation();
   useEffect(() => {
     setSelectedLanguage(i18n.language);
@@ -23,6 +47,10 @@ const Header = () => {
   const onSelectLanguage = (value) => {
     setSelectedLanguage(value);
     i18n.changeLanguage(value);
+  };
+
+  const onSidebarIconClick = () => {
+    setSidebarState((prevState) => !prevState);
   };
   return (
     <div>
@@ -37,7 +65,12 @@ const Header = () => {
           >
             FUND GRANITE
           </h1>
-          <div className={styles.header_sidebarIcon} onClick={() => {}}>
+          <div
+            className={styles.header_sidebarIcon}
+            onClick={() => {
+              onSidebarIconClick();
+            }}
+          >
             <div className={styles.header_sidebarIconDiv} />
             <div className={styles.header_sidebarIconDiv} />
             <div className={styles.header_sidebarIconDiv} />
@@ -54,19 +87,29 @@ const Header = () => {
                 </option>
               ))}
             </select>
-            <Link link={"/"}>{t("header.main")}</Link>
-            <Link link={"/aboutUs"}>{t("header.aboutUs")}</Link>
-            <Link link={"/donate"} style={{ fontFamily: "roboto" }}>
-              <span style={{ textDecoration: "underline" }}>
-                {t("header.donate")}
-              </span>
-            </Link>
-            <Link link={"/blog"}>{t("header.blog")}</Link>
+
+            {LINKS.map((elem, index) => (
+              <Link
+                link={elem.link}
+                style={elem?.style}
+                underline={elem?.underline}
+              >
+                {t(elem.text)}
+              </Link>
+            ))}
+
+            {/*<Link link={"/aboutUs"}>{t("header.aboutUs")}</Link>*/}
+            {/*<Link link={"/donate"}>{t("header.donate")}</Link>*/}
+            {/*<Link link={"/blog"}>{t("header.blog")}</Link>*/}
           </div>
         </div>
         <div className={styles.header_bottom}></div>
       </header>
       <div className={styles.headerMock}></div>
+      <MobileSidebar
+        sidebarState={sidebarState}
+        setSidebarState={setSidebarState}
+      />
     </div>
   );
 };

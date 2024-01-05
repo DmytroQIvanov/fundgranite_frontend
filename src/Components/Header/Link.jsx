@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Header.module.scss";
 
-const LinkComponent = ({ link, children, style }) => {
+const LinkComponent = ({ link, children, style, underline }) => {
   const location = useLocation();
   console.log(location.pathname);
   console.log(link);
@@ -24,7 +24,9 @@ const LinkComponent = ({ link, children, style }) => {
       //     : styles.header_linkInactive
       // }`}
       >
-        {children}
+        <span style={{ textDecoration: underline ? "underline" : "none" }}>
+          {children}
+        </span>
       </div>
     </Link>
   );
