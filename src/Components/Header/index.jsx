@@ -68,9 +68,9 @@ const Header = () => {
           </h1>
           <div
             style={{
-              margin: "auto 40px auto auto",
+              margin: "auto 20px auto auto",
               display: "flex",
-              gap: "15px",
+              gap: "6px",
               cursor: "pointer",
             }}
           >
