@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./smth.module.scss";
+import { useTranslation } from "react-i18next";
 
 const Effect = ({ imgUrl }) => {
+  const { t } = useTranslation();
   return (
     <div className={styles.effect}>
       <div className={styles.effect_borderElementTop}>
         <div className={styles.effect_borderElementContent}>
-          <h1>Фонд для збору коштів на дрони</h1>
+          <h1>{t("main.title1")}</h1>
           <span>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
             ullamcorper sapien sed sapien convallis blandit. Etiam ullamcorper
@@ -25,7 +27,7 @@ const Effect = ({ imgUrl }) => {
       </div>
       <div className={styles.effect_borderElementBottom}>
         <div className={styles.effect_borderElementContent}>
-          <h1>Фонд для збору коштів на дрони</h1>
+          <h1>{t("main.title1")}</h1>
           <span>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
             ullamcorper sapien sed sapien convallis blandit. Etiam ullamcorper

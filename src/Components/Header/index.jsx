@@ -4,6 +4,7 @@ import logo from "../../Assets/LOGO.svg";
 import Link from "./Link";
 import { useTranslation } from "react-i18next";
 import MobileSidebar from "../MobileSidebar";
+import ReSelect from "../ReComponents/ReSelect";
 
 const LANGUAGES = [
   {
@@ -66,6 +67,39 @@ const Header = () => {
             FUND GRANITE
           </h1>
           <div
+            style={{
+              margin: "auto 40px auto auto",
+              display: "flex",
+              gap: "15px",
+              cursor: "pointer",
+            }}
+          >
+            {LANGUAGES.map((elem, index) => {
+              return (
+                <div>
+                  <span
+                    onClick={() => onSelectLanguage(elem.code)}
+                    style={
+                      elem.code === selectedLanguage
+                        ? { textDecoration: "underline", color: "white" }
+                        : { color: "white" }
+                    }
+                  >
+                    {elem.label}
+                  </span>
+                  <span style={{ color: "white" }}>{index === 0 && " -"}</span>
+                </div>
+              );
+            })}
+            {/*<ReSelect*/}
+            {/*  value={selectedLanguage}*/}
+            {/*  onChange={onSelectLanguage}*/}
+            {/*  array={LANGUAGES}*/}
+            {/*/>*/}
+          </div>
+
+          {/*--- MOBILE SIDEBAR ---*/}
+          <div
             className={styles.header_sidebarIcon}
             onClick={() => {
               onSidebarIconClick();
@@ -76,18 +110,6 @@ const Header = () => {
             <div className={styles.header_sidebarIconDiv} />
           </div>
           <div className={styles.header_linksContainer}>
-            <select
-              defaultValue={"es"}
-              value={selectedLanguage}
-              onChange={(event) => onSelectLanguage(event.target.value)}
-            >
-              {LANGUAGES.map(({ code, label }) => (
-                <option key={code} value={code}>
-                  {label}
-                </option>
-              ))}
-            </select>
-
             {LINKS.map((elem, index) => (
               <Link
                 link={elem.link}

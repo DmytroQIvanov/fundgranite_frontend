@@ -1,7 +1,6 @@
 @import "../../Styles";
 @import "../../screens";
 .donate{
-
   ::-moz-selection {
     //background-color: yellow;
     background-color: $brown;
@@ -20,6 +19,7 @@
     margin: auto;
     background-color: $default_dark;
     border-radius: 10px;
+    position:relative;
   }
   &_title{
     color: white;
@@ -68,12 +68,13 @@
   }
   &_gooleDonate{
     width: max-content;
-    margin: auto;
+    margin: 20px auto;
   }
 
   &_props{
     &Number{
       display: flex;
+      font-size: 17px;
       span{
         margin: auto;
       }

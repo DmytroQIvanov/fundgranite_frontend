@@ -160,13 +160,18 @@ const DonatePage = () => {
         <div style={{}}>
           <h1>{t("donate.detailsForTransfersInNationalCurrency")}</h1>
           <span className={styles.donate_title}>
-            <div>
+            <div className={styles.donate_propsNumber}>
+              <span>
+                БЛАГОДІЙНА ОРГАНІЗАЦІЯ "БЛАГОДІЙНИЙ ФОНД "ФОРПОСТ ГРАНІТ"
+              </span>
+            </div>
+            <div className={styles.donate_propsNumber}>
               <span>Код Одержувача: 45270705</span>
             </div>
-            <div>
+            <div className={styles.donate_propsNumber}>
               <span>Банк Одержувача: АТ «ОТП БАНК» в м. Київ </span>
             </div>
-            <div>
+            <div className={styles.donate_propsNumber}>
               <span>МФО: 300528</span>
             </div>
             <div className={styles.donate_propsNumber}>
@@ -179,6 +184,8 @@ const DonatePage = () => {
                   borderRadius: "5px",
                   background: "green",
                   color: "white",
+                  position: "absolute",
+                  right: "20px",
                 }}
               >
                 Копіювати
@@ -191,17 +198,17 @@ const DonatePage = () => {
         <div style={{}}>
           <h1>{t("donate.detailsForTransfersInForeignCurrency")}</h1>
           <span className={styles.donate_title}>
-            <div>
-              <span>{t("donate.recipientCode")}: 45270705</span>
-            </div>
-            <div>
-              <span>Банк Одержувача: АТ «ОТП БАНК» в м. Київ </span>
-            </div>
-            <div>
-              <span>МФО: 300528</span>
+            <div className={styles.donate_propsNumber}>
+              <span>Beneficiary: 'CO 'CF 'FORPOST GRANITE'</span>
             </div>
             <div className={styles.donate_propsNumber}>
-              <span>Рахунок №: UA433005280000026001000035980</span>
+              <span>Account#:UA433005280000026001000035980</span>
+            </div>
+            <div className={styles.donate_propsNumber}>
+              <span>Beneficiary’s bank: OTP BANK JSC</span>
+            </div>
+            <div className={styles.donate_propsNumber}>
+              <span>SWIFT code: SWIFT code</span>
 
               <button
                 style={{
@@ -210,6 +217,8 @@ const DonatePage = () => {
                   borderRadius: "5px",
                   background: "green",
                   color: "white",
+                  position: "absolute",
+                  right: "20px",
                 }}
               >
                 Копіювати
