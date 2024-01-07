@@ -8,7 +8,7 @@ const LoaderPage = () => {
       <div className={styles.loaderPage_logoDivContainer}>
         <div className={styles.loaderPage_logoDiv}>
           <img src={logo} width={"200px"} />
-          <h1>Found Granit</h1>
+          <h1>Fund Granite</h1>
         </div>
       </div>
     </div>

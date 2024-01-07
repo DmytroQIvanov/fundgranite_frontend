@@ -57,11 +57,9 @@ const DonatePage = () => {
     return value;
   };
   /// --- STATES ---
-  const [selectedCurrency, setSelectedCurrency] = useState(1);
-  const [selectedPaymentOption, setSelectedPaymentOption] = useState(1);
-  const [selectedValue, setSelectedValue] = useState(
-    selectCurrencyFunction(selectedCurrency)[1],
-  );
+  const [selectedCurrency, setSelectedCurrency] = useState(0);
+  const [selectedPaymentOption, setSelectedPaymentOption] = useState(0);
+  const [selectedValue, setSelectedValue] = useState(0);
 
   const [selectedCurrencyArray, setSelectedCurrencyArray] =
     useState(chooseValueUAN);

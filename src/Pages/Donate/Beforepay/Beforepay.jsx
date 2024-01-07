@@ -86,10 +86,10 @@ const Beforepay = ({
             <div
               key={index}
               onClick={() => {
-                onClickPaymentOption(index + 1);
+                onClickPaymentOption(index);
               }}
               className={`${styles.donate_valueBlock} ${
-                selectedPaymentOption == index + 1
+                selectedPaymentOption == index
                   ? styles.donate_valueBlock_active
                   : ""
               }`}
@@ -110,10 +110,10 @@ const Beforepay = ({
               <div
                 key={index}
                 onClick={() => {
-                  onClickCurrency(index + 1);
+                  onClickCurrency(index);
                 }}
                 className={`${styles.donate_valueBlock} ${
-                  selectedCurrency == index + 1
+                  selectedCurrency == index
                     ? styles.donate_valueBlock_active
                     : ""
                 }`}
@@ -135,12 +135,10 @@ const Beforepay = ({
               <div
                 key={index}
                 onClick={() => {
-                  onClickPaymentValue(index + 1);
+                  onClickPaymentValue(index);
                 }}
                 className={`${styles.donate_valueBlock} ${
-                  selectedValue == index + 1
-                    ? styles.donate_valueBlock_active
-                    : ""
+                  selectedValue == index ? styles.donate_valueBlock_active : ""
                 }`}
               >
                 <span className={styles.donate_valueBlockTitle}>

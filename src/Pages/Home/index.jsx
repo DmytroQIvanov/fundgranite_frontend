@@ -11,7 +11,7 @@ const HomePage = () => {
 
   return (
     <HelmetWrapper
-      title={"Granit Fund"}
+      title={"Granite Fund"}
       description={"Фонд для збору коштів"}
       keywords={
         "Фонд, Granite Fund, fund, ЗСУ, дрони, волонтери, волонтерство, збір, разом переможемо, внесок, Fund, Granite Fund, fund, Armed Forces of Ukraine, drones, volunteers, volunteering, collection, together we will win, contribution"
