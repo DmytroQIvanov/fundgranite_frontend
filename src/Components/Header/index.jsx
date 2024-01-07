@@ -8,12 +8,12 @@ import ReSelect from "../ReComponents/ReSelect";
 
 const LANGUAGES = [
   {
-    label: "ENG",
-    code: "en",
-  },
-  {
     label: "UA",
     code: "ua",
+  },
+  {
+    label: "ENG",
+    code: "en",
   },
 ];
 
@@ -27,14 +27,15 @@ const LINKS = [
     text: "header.aboutUs",
   },
   {
+    link: "/blog",
+    text: "header.blog",
+  },
+
+  {
     link: "/donate",
     text: "header.donate",
     style: { fontFamily: "roboto" },
     underline: true,
-  },
-  {
-    link: "/blog",
-    text: "header.blog",
   },
 ];
 const Header = () => {

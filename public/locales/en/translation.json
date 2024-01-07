@@ -7,7 +7,7 @@
     "main": "Home",
     "aboutUs": "About us",
     "donate": "Donate",
-    "blog": "Blog"
+    "blog": "Activity"
   },
 
   "donate": {
@@ -16,10 +16,11 @@
     "recipientCode": "Recipient code",
     "recipientBank": "Recipient's bank",
     "detailsForTransfersInNationalCurrency": "Details for transfers in national currency",
-    "detailsForTransfersInForeignCurrency": "Details for transfers in foreign currency"
+    "detailsForTransfersInForeignCurrency": "Details for transfers in foreign currency",
+    "choosePaymentOption": "Choose a payment option"
   },
   "main": {
     "support": "Support",
-    "title1": "Fund to raise funds for drones"
+    "title1": "Fund for collecting funds for pickup trucks"
   }
 }

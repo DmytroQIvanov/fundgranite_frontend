@@ -1,13 +1,13 @@
 {
   "hello": "Hell222222222o",
   "cancel": "Cancel",
-  "continue": "Comtinue",
+  "continue": "Continue",
 
    "header": {
     "main": "Головна",
     "aboutUs": "Про нас",
     "donate": "Зробити внесок",
-    "blog": "Блог"
+    "blog": "Діяльність"
   },
 
   "donate": {
@@ -16,11 +16,12 @@
     "recipientCode": "Код Одержувача",
     "recipientBank": "Банк Одержувача",
     "detailsForTransfersInNationalCurrency": "Реквізити для переказів у національній валюті",
-    "detailsForTransfersInForeignCurrency": "Реквізити для переказів в іноземній валюті"
+    "detailsForTransfersInForeignCurrency": "Реквізити для переказів в іноземній валюті",
+    "choosePaymentOption": "Оберіть варіант оплати"
   },
   "main": {
     "support": "Підтримати",
-    "title1": "Фонд для збору коштів на дрони"
+    "title1": "Фонд для збору коштів на пікапи"
 
   }
 }

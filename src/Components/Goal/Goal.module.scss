@@ -9,7 +9,7 @@
   }
   &_elem1 {
     width: 100%;
-    background-color: $red;
+    background-color: $brown;
     height: 70px;
     display: flex;
   }
@@ -29,11 +29,12 @@
 
   &_elem3 {
     width: 100%;
-    background-color: $red;
+    background-color: #a1766b;
     height: 70px;
     display: flex;
 
     a {
+    color: black !important;
       text-decoration: none !important;
     }
   }

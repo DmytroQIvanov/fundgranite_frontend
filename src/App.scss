@@ -46,15 +46,15 @@
   z-index: 200;
   //animation: fade 1s forwards;
   //animation-iteration-count: infinite;
-  transition-duration: 0.5s;
+  transition-duration: 0.9s;
 }
 .loading_active{
   opacity: 1 !important;
-  transition-duration: 0.5s;
+  transition-duration: 0.9s;
 }
 
 .loading_inactive{
   opacity: 0 !important;
-  transition-duration: 0.5s;
+  transition-duration: 0.9s;
   z-index: -1;
 }

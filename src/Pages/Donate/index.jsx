@@ -1,51 +1,8 @@
 import React, { useEffect, useState } from "react";
-import GooglePayButton from "@google-pay/button-react";
 import styles from "./Donate.module.scss";
-import ReInput from "../../Components/ReComponents/Input";
-import moneySVG from "../../Assets/usd-circle.svg";
 import { useTranslation } from "react-i18next";
-const GoogleDonateButton = () => {
-  return (
-    <GooglePayButton
-      environment="TEST"
-      buttonType={"donate"}
-      paymentRequest={{
-        apiVersion: 2,
-        apiVersionMinor: 0,
-        allowedPaymentMethods: [
-          {
-            type: "CARD",
-            parameters: {
-              allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-              allowedCardNetworks: ["MASTERCARD", "VISA"],
-            },
-            tokenizationSpecification: {
-              type: "PAYMENT_GATEWAY",
-              parameters: {
-                gateway: "example",
-                gatewayMerchantId: "exampleGatewayMerchantId",
-              },
-            },
-          },
-        ],
-        merchantInfo: {
-          merchantId: "12345678901234567890",
-          merchantName: "Demo Merchant",
-        },
-        transactionInfo: {
-          totalPriceStatus: "FINAL",
-          totalPriceLabel: "Total",
-          totalPrice: "100.00",
-          currencyCode: "USD",
-          countryCode: "US",
-        },
-      }}
-      onLoadPaymentData={(paymentRequest) => {
-        console.log("load payment data", paymentRequest);
-      }}
-    />
-  );
-};
+import Postpaid from "./Postpaid/Postpaid";
+import Beforepay from "./Beforepay/Beforepay";
 
 const chooseValueUAN = [
   { value: 50, text: "50 UAH" },
@@ -68,185 +25,91 @@ const chooseValueEUR = [
   { value: 100, text: "100 EUR" },
 ];
 
-const chooseCurrency = [
-  { value: "uah", text: "UAH" },
-  { value: "usd", text: "USD" },
-  { value: "eur", text: "EUR" },
+export const chooseCurrency = [
+  { value: "UAH", text: "UAH" },
+  { value: "USD", text: "USD" },
+  { value: "EUR", text: "EUR" },
+];
+
+export const paymentOptions = [
+  { text: "Через Google Pay && Apple Pay" },
+  { text: "Вручну" },
+  { text: "По реквізитам" },
 ];
 const DonatePage = () => {
+  const selectCurrencyFunction = (selectedCurrencyValue) => {
+    let value;
+    switch (selectedCurrencyValue) {
+      case 1:
+        value = chooseValueUAN;
+        break;
+      case 2:
+        value = chooseValueUSD;
+        break;
+
+      case 3:
+        value = chooseValueEUR;
+        break;
+
+      default:
+        value = chooseValueUAN;
+    }
+    return value;
+  };
   /// --- STATES ---
-  const [selectedCurrency, setSelectedCurrency] = useState(0);
+  const [selectedCurrency, setSelectedCurrency] = useState(1);
+  const [selectedPaymentOption, setSelectedPaymentOption] = useState(1);
+  const [selectedValue, setSelectedValue] = useState(
+    selectCurrencyFunction(selectedCurrency)[1],
+  );
+
   const [selectedCurrencyArray, setSelectedCurrencyArray] =
     useState(chooseValueUAN);
+  const [postPaid, setPostPaid] = useState();
+
   const { t, i18n } = useTranslation();
 
   // --- FUNCTIONS ---
   const onClickCurrency = (id) => {
     setSelectedCurrency(id);
   };
+  const onClickPaymentOption = (id) => {
+    setSelectedPaymentOption(id);
+  };
+
+  const onClickPaymentValue = (value) => {
+    setSelectedValue(value);
+  };
+  const onPay = () => {
+    setPostPaid({
+      value: "300",
+      currency: selectedCurrency,
+      state: true,
+    });
+  };
 
   /// --- USE-EFFECTS ---
 
   useEffect(() => {
-    switch (selectedCurrency) {
-      case 1:
-        setSelectedCurrencyArray(chooseValueUAN);
-        break;
-
-      case 2:
-        setSelectedCurrencyArray(chooseValueUSD);
-        break;
-
-      case 3:
-        setSelectedCurrencyArray(chooseValueEUR);
-
-        break;
-    }
+    setSelectedCurrencyArray(selectCurrencyFunction(selectedCurrency));
   }, [selectedCurrency]);
   return (
     <div className={styles.donate}>
       <div className={styles.donate_container}>
-        <div>
-          <span className={styles.donate_title}>
-            {t("donate.chooseCurrency")}:
-          </span>
-
-          <div className={styles.donate_valueBlock_container}>
-            {chooseCurrency.map((elem, index) => {
-              return (
-                <div
-                  key={index}
-                  onClick={() => {
-                    onClickCurrency(index + 1);
-                  }}
-                  className={`${styles.donate_valueBlock} ${
-                    selectedCurrency == index + 1
-                      ? styles.donate_valueBlock_active
-                      : ""
-                  }`}
-                >
-                  <span className={styles.donate_valueBlockTitle}>
-                    {elem.text}
-                  </span>{" "}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        <div>
-          <span className={styles.donate_title}>
-            {t("donate.chooseValue")}:
-          </span>
-
-          <div className={styles.donate_valueBlock_container}>
-            {selectedCurrencyArray.map((elem, index) => {
-              return (
-                <div
-                  key={index}
-                  onClick={() => {}}
-                  className={styles.donate_valueBlock}
-                >
-                  <span className={styles.donate_valueBlockTitle}>
-                    {elem.text}
-                  </span>{" "}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/*--- NATIONAL CURRENCY ---*/}
-        <div className={styles.donate_line} />
-        <div style={{}}>
-          <h1>{t("donate.detailsForTransfersInNationalCurrency")}</h1>
-          <span className={styles.donate_title}>
-            <div className={styles.donate_propsNumber}>
-              <span>
-                БЛАГОДІЙНА ОРГАНІЗАЦІЯ "БЛАГОДІЙНИЙ ФОНД "ФОРПОСТ ГРАНІТ"
-              </span>
-            </div>
-            <div className={styles.donate_propsNumber}>
-              <span>Код Одержувача: 45270705</span>
-            </div>
-            <div className={styles.donate_propsNumber}>
-              <span>Банк Одержувача: АТ «ОТП БАНК» в м. Київ </span>
-            </div>
-            <div className={styles.donate_propsNumber}>
-              <span>МФО: 300528</span>
-            </div>
-            <div className={styles.donate_propsNumber}>
-              <span>Рахунок №: UA433005280000026001000035980</span>
-
-              <button
-                style={{
-                  border: "none",
-                  padding: "10px",
-                  borderRadius: "5px",
-                  background: "green",
-                  color: "white",
-                  position: "absolute",
-                  right: "20px",
-                }}
-              >
-                Копіювати
-              </button>
-            </div>
-          </span>
-        </div>
-
-        {/*--- FOREIGHT CURRENCY ---*/}
-        <div style={{}}>
-          <h1>{t("donate.detailsForTransfersInForeignCurrency")}</h1>
-          <span className={styles.donate_title}>
-            <div className={styles.donate_propsNumber}>
-              <span>Beneficiary: 'CO 'CF 'FORPOST GRANITE'</span>
-            </div>
-            <div className={styles.donate_propsNumber}>
-              <span>Account#:UA433005280000026001000035980</span>
-            </div>
-            <div className={styles.donate_propsNumber}>
-              <span>Beneficiary’s bank: OTP BANK JSC</span>
-            </div>
-            <div className={styles.donate_propsNumber}>
-              <span>SWIFT code: SWIFT code</span>
-
-              <button
-                style={{
-                  border: "none",
-                  padding: "10px",
-                  borderRadius: "5px",
-                  background: "green",
-                  color: "white",
-                  position: "absolute",
-                  right: "20px",
-                }}
-              >
-                Копіювати
-              </button>
-            </div>
-          </span>
-        </div>
-
-        <div className={styles.donate_line} />
-
-        <div>
-          <span className={styles.donate_title}>Чи введіть вручну:</span>
-          <ReInput
-            title={{ text: "Значення", color: "white" }}
-            type={"number"}
+        {postPaid && postPaid?.state ? (
+          <Postpaid setPostPaid={setPostPaid} postPaid={postPaid} />
+        ) : (
+          <Beforepay
+            onClickCurrency={onClickCurrency}
+            selectedCurrency={selectedCurrency}
+            selectedCurrencyArray={selectedCurrencyArray}
+            onPay={onPay}
+            onClickPaymentOption={onClickPaymentOption}
+            selectedPaymentOption={selectedPaymentOption}
+            onClickPaymentValue={onClickPaymentValue}
+            selectedValue={selectedValue}
           />
-        </div>
-        <div className={styles.donate_line} />
-
-        <div>
-          <span className={styles.donate_title}>
-            Допомогайте за допомогою Google Pay:
-          </span>
-
-          <div className={styles.donate_gooleDonate}>
-            <GoogleDonateButton />
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

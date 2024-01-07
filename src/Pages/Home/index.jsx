@@ -4,6 +4,7 @@ import GreenBlock from "../../Components/GreenBlock";
 import HelmetWrapper from "../../Components/ReComponents/HelmetWrapper";
 import { useTranslation } from "react-i18next";
 import Effect from "../../Components/Effect/Effect";
+import imgHome from "../../Assets/photo_2024-01-06_18-01-16.jpg";
 
 const HomePage = () => {
   const { t, i18n } = useTranslation();
@@ -20,11 +21,7 @@ const HomePage = () => {
         <Effect
           imgUrl={"https://antytila.ua/wp-content/uploads/2022/08/5-scaled.jpg"}
         />
-        <Effect
-          imgUrl={
-            "https://www.atlanticcouncil.org/wp-content/uploads/2023/02/ARMY_OF_DRONES-scaled-e1677624072185.jpg"
-          }
-        />
+        <Effect imgUrl={imgHome} />
         <GreenBlock />
         <Goal />
       </div>

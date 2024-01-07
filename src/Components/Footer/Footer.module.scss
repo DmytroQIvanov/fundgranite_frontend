@@ -22,9 +22,14 @@
   &_elem1 {
     gap: 20px;
     font-family: "Courier New";
-    display: flex;
+    //display: flex;
     flex-direction: column;
     text-align: center;
+
+     display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0.1fr 0.1fr 0.1fr ;
+
   }
 
   @media screen and (max-width: $small) {

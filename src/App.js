@@ -22,7 +22,11 @@ function App() {
 
   const [suspended, setSuspended] = useState(false);
   useEffect(() => {
-    setTimeout(() => setSuspended((s) => (s ? s : !s)), 500);
+    console.log("111111111");
+    setTimeout(() => {
+      console.log("111111111222222222222222");
+      setSuspended((s) => (s ? s : !s));
+    }, 800);
   }, []);
 
   return (
