@@ -12,6 +12,7 @@ import Goal from "./Components/Goal";
 import PageWrapper from "./Components/ReComponents/PageWrapper";
 import DonatePage from "./Pages/Donate";
 import HomePage from "./Pages/Home";
+import PublicOffer from "./Pages/PublicOffer";
 
 const Router = () => {
   const routerArray = createBrowserRouter([
@@ -41,6 +42,15 @@ const Router = () => {
     {
       path: "/blog",
       element: <PageWrapper header footer></PageWrapper>,
+    },
+
+    {
+      path: "/public-offer",
+      element: (
+        <PageWrapper header footer>
+          <PublicOffer />
+        </PageWrapper>
+      ),
     },
   ]);
 

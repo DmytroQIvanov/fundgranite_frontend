@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Footer.module.scss";
+import { Link } from "react-router-dom";
+import logo from "../../Assets/LOGO.svg";
 
 // *Угода користувача (Terms & Conditions);
 // *Політика конфіденційності (Privacy Policy);
@@ -13,17 +15,25 @@ const FooterComponent = () => {
         <div className={styles.footer_container}>
           <div className={styles.footer_innerContainer}>
             <div className={styles.footer_elem1}>
-              <span>Terms & Conditions</span>
-              <span>Privacy Policy</span>
-              <span>Політика використання файлів cookie</span>
-
-              <span>
-                Політика з безпеки передачі реквізитів платіжної картки
-              </span>
-              <span>Test</span>
-              <span>forpostgranite@gmail.com</span>
-              <span>Test -ada dad </span>
-              <span>+380999999999</span>
+              <div className={styles.footer_block}>
+                <div className={styles.footer_title}>Правова інформація</div>
+                <Link to={"/public-offer"}>Public offer</Link>
+                <span>Terms & Conditions</span>
+                <span>Privacy Policy</span>
+                {/*<span>Політика використання файлів cookie</span>*/}
+                <span>
+                  Політика з безпеки передачі реквізитів платіжної картки
+                </span>
+              </div>
+              <div className={styles.footer_block}>
+                <div className={styles.footer_title}>Контактна інформація</div>
+                <span>forpostgranite@gmail.com</span>
+                <span>+380999999999</span>
+                <span>Передзвонить вам?</span>
+              </div>
+              <div>
+                <img src={logo} />
+              </div>
             </div>
           </div>
         </div>

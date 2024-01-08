@@ -1,0 +1,40 @@
+@import "../../Styles";
+
+.customModal {
+  &_container {
+    width: 80%;
+    z-index: 10000;
+    background-color: $beige;
+    height: 500px;
+    border-radius: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &Active{
+      opacity: 1;
+    }
+    &Inactive{
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  &_greyBackground {
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: $greyModalBackground;
+    transition-duration: 0.3s;
+    &Active {
+      opacity: 1;
+    }
+    &Inactive {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+}

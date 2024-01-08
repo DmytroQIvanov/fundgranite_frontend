@@ -1,8 +1,9 @@
 @import "./Styles";
 .App {
-  background-color: $default;
+  //background-color: $default;
   width: 100%;
   height: max-content;
+  background-image: url("./Assets/photo_2024-01-08_16-35-31.jpg");
 
   position: relative;
   min-height: 100vh;
