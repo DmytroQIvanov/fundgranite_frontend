@@ -1,100 +1,23 @@
-
-#
-#FROM node:18-alpine
-#WORKDIR /app
-#COPY package*.json .
-#RUN npm ci
-#COPY . .
-#RUN npm run build
-#RUN #npm i serve@14.2.1
-#EXPOSE 3000
-#CMD [ "npx", "serve", "build" ]
-
-
-##// Dockerfile
-#
-## ==== CONFIGURE =====
-## Use a Node 16 base image
-#FROM node:18-alpine as builder
-## Set the working directory to /app inside the container
-#WORKDIR /app
-## Copy app files
-#COPY package*.json .
-#RUN npm ci
-#COPY . .
-#
-## ==== BUILD =====
-## Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
-## Build the app
-#RUN npm run build
-##RUN npm i serve@14.2.1
-## ==== RUN =======
-## Set the env to "production"
-##ENV NODE_ENV production
-## Expose the port on which the app will be running (3000 is the default that `serve` uses)
-##EXPOSE 3000
-## Start the app
-##CMD [ "npx", "serve", "build" ]
-#FROM nginx:1.19.0
-#WORKDIR /usr/share/nginx/html
-#RUN rm -rf ./*
-#COPY --from=builder /app/build .
-#ENTRYPOINT ["nginx", "-g", "daemon off;"]
-#
-
-# Use the official Node.js runtime as the base image
-#FROM node:18 as build
-
-# Set the working directory in the container
-#WORKDIR /app
-
-# Copy package.json and package-lock.json to the working directory
-#COPY package*.json ./
-
-# Install dependencies
-#RUN npm install
-
-# Copy the entire application code to the container
-#COPY . .
-
-# Build the React app for production
-#RUN npm un build
-
-# Use Nginx as the production server
-#FROM nginx:alpine
-
-# Copy the built React app to Nginx's web server directory
-#COPY --from=build /app/build /usr/share/nginx/html
-#RUN rm /etc/nginx/conf.d/default.conf
-#COPY /nginx.conf /etc/nginx/nginx.conf
-#COPY /fullchain.pem /etc/letsencrypt/live/exampleserver.com/fullchain.pem
-#COPY /privkey.pem /etc/letsencrypt/live/exampleserver.com/privkey.pem
-
-# Expose port 80 for the Nginx server
-#EXPOSE 80
-
-# Start Nginx when the container runs
-#CMD ["nginx", "-g", "daemon off;"]
-
-
-FROM node:18 AS build
-
+FROM node:18-alpine as react_build
+#also say
 WORKDIR /app
+#copy the react app to the container
+COPY . /app/
 
-COPY package*.json ./
-
-RUN npm install
-
-COPY . .
-
+# #prepare the contiainer for building react
+RUN npm install --silent
+RUN npm install react-scripts@3.0.1 -g --silent
 RUN npm run build
 
-FROM nginx:1.25.1
+#prepare nginx
+FROM nginx:1.16.0-alpine
 
-#COPY /nginx.conf /etc/nginx/nginx.conf
+COPY --from=react_build /app/build /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY /nginx.conf /etc/nginx/conf.d
 
-COPY --from=build /app/build /usr/share/nginx/html
 
+
+#fire up nginx
 EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx","-g","daemon off;"]
