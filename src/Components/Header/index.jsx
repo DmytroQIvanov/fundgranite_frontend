@@ -9,6 +9,7 @@ import homeSVG from "../../Assets/home-1-svgrepo-com.svg";
 import aboutUsSVG from "../../Assets/about-us-svgrepo-com.svg";
 import donateSVG from "../../Assets/donate-svgrepo-com.svg";
 import activitySVG from "../../Assets/activity-heart-svgrepo-com.svg";
+import redHeart from "../../Assets/redHeart.svg";
 
 const LANGUAGES = [
   {
@@ -44,6 +45,7 @@ const LINKS = [
     style: { fontFamily: "roboto" },
     underline: true,
     icon: donateSVG,
+    icon2: redHeart,
   },
 ];
 const Header = () => {
@@ -127,6 +129,7 @@ const Header = () => {
                 underline={elem?.underline}
               >
                 {t(elem.text)}
+                {/*{elem.icon2 && <img src={elem.icon2} width={30} />}*/}
               </Link>
             ))}
 
