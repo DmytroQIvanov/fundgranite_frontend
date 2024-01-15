@@ -59,6 +59,7 @@
     };
     &Content{
       color: white;
+      font-size: 18px;
       @include insideBorderPC
     }
   }

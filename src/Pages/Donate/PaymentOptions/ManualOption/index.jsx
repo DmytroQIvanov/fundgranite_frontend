@@ -11,7 +11,7 @@ const ManualOption = () => {
       <div
         style={{
           fontSize: "30px",
-          color: "white",
+          color: "black",
           margin: "auto",
           width: "max-content",
           height: "max-content",

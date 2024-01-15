@@ -24,6 +24,7 @@
     font-size: 30px;
     color: white;
     margin-bottom: 20px;
+    text-align: center;
   }
 
   &_description{
@@ -43,7 +44,11 @@
   }
   &_description{
 
-    font-size: 14px;
+    //font-size: 14px;
+    li{
+      margin: 15px 0px 15px -8px;
+      font-size: 19px;
+    }
   }
   }
 

@@ -18,12 +18,54 @@ const Beforepay = ({
 }) => {
   const { t } = useTranslation();
 
-  const [selectedPaymentOptionNode, setSelectedPaymentOptionNode] = useState();
+  // const [selectedPaymentOptionNode, setSelectedPaymentOptionNode] = useState();
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   switch (selectedPaymentOption) {
+  //     case 0:
+  //       setSelectedPaymentOptionNode(
+  //         <AutoOption
+  //           {...{
+  //             onClickCurrency,
+  //             selectedCurrency,
+  //             selectedCurrencyArray,
+  //             onClickPaymentValue,
+  //             selectedValue,
+  //             onPay,
+  //           }}
+  //         />,
+  //       );
+  //       break;
+  //
+  //     case 1:
+  //       setSelectedPaymentOptionNode(<ManualOption />);
+  //       break;
+  //
+  //     case 2:
+  //       setSelectedPaymentOptionNode(<DetailsOption />);
+  //       break;
+  //
+  //     default:
+  //       setSelectedPaymentOptionNode(
+  //         <AutoOption
+  //           {...{
+  //             onClickCurrency,
+  //             selectedCurrency,
+  //             selectedCurrencyArray,
+  //             onClickPaymentValue,
+  //             selectedValue,
+  //             onPay,
+  //           }}
+  //         />,
+  //       );
+  //       break;
+  //   }
+  // }, [selectedPaymentOption]);
+
+  const test = () => {
     switch (selectedPaymentOption) {
       case 0:
-        setSelectedPaymentOptionNode(
+        return (
           <AutoOption
             {...{
               onClickCurrency,
@@ -33,34 +75,28 @@ const Beforepay = ({
               selectedValue,
               onPay,
             }}
-          />,
+          />
         );
-        break;
 
       case 1:
-        setSelectedPaymentOptionNode(<ManualOption />);
-        break;
+        return <ManualOption />;
 
       case 2:
-        setSelectedPaymentOptionNode(<DetailsOption />);
-        break;
+        return <DetailsOption />;
 
       default:
-        setSelectedPaymentOptionNode(
-          <AutoOption
-            {...{
-              onClickCurrency,
-              selectedCurrency,
-              selectedCurrencyArray,
-              onClickPaymentValue,
-              selectedValue,
-              onPay,
-            }}
-          />,
-        );
-        break;
+        <AutoOption
+          {...{
+            onClickCurrency,
+            selectedCurrency,
+            selectedCurrencyArray,
+            onClickPaymentValue,
+            selectedValue,
+            onPay,
+          }}
+        />;
     }
-  }, [selectedPaymentOption]);
+  };
 
   return (
     <div>
@@ -95,7 +131,7 @@ const Beforepay = ({
           );
         })}
       </div>
-      {selectedPaymentOptionNode}
+      {test()}
     </div>
   );
 };

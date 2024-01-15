@@ -24,11 +24,12 @@
   }
 
   &_donateBtn{
-    background-color: $brown !important;
+    background-color: $brown ;
     border-radius: 10px;
     //border: 4px solid $brown;
     &:hover{
       transition-duration: .3s;
+      background-color: white;
       background-color: $green_darker;
 
     }

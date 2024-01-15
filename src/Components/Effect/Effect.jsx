@@ -15,7 +15,7 @@ const Effect = ({
       <div className={styles.effect_borderElementTop}>
         <div className={styles.effect_borderElementContent}>
           {/*<h1>{t("main.title1")}</h1>*/}
-          <h1>{titleTop}</h1>
+          <h1 style={{ textAlign: "center" }}>{titleTop}</h1>
           <span>{descriptionTop}</span>
         </div>
       </div>

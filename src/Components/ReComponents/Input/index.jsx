@@ -29,12 +29,14 @@ const ReInput = ({
   return (
     <div className={styles.reInput}>
       <div className={styles.reInput_container}>
-        <span
-          className={`${styles.reInput_title}`}
-          style={{ color: title?.color ?? "black" }}
-        >
-          {title?.text}:
-        </span>
+        {title?.text && (
+          <span
+            className={`${styles.reInput_title}`}
+            style={{ color: title?.color ?? "black" }}
+          >
+            {title.text}:
+          </span>
+        )}
         {type == "textarea" ? (
           <textarea
             className={styles.reInput_textarea}

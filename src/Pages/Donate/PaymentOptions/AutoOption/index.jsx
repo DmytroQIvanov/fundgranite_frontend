@@ -128,7 +128,7 @@ const AutoOption = ({
 
       <div>
         <span className={styles.donate_title}>Чи введіть вручну:</span>
-        <ReInput title={{ text: "Значення", color: "white" }} type={"number"} />
+        <ReInput type={"number"} />
       </div>
       <div className={styles.donate_line} />
 

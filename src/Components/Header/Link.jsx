@@ -14,7 +14,7 @@ const LinkComponent = ({ link, children, style, underline }) => {
         location.pathname === link
           ? styles.header_linkActive
           : styles.header_linkInactive
-      } ${underline ? styles.header_donateBtn : ""}`}
+      } ${underline ? styles.header_donateBtn : ""} prevent-select`}
       style={style}
     >
       <div
