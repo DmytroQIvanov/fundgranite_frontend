@@ -15,6 +15,7 @@
     z-index: 100;
     fill: aliceblue;
     color: aliceblue;
+    cursor: pointer;
   }
   &_linksContainer {
     display: flex;
@@ -90,7 +91,7 @@
       }
     }
     &_title {
-      font-size: 24px;
+      font-size: 20px;
       margin: auto;
     }
     &_linksContainer {
@@ -106,8 +107,12 @@
   display: block;
   position: relative;
   //position: block;
+  @media screen and (max-width: $medium) {
+    height: 74px;
+
+  }
 
   @media screen and (max-width: $small) {
-    height: 75px;
+    height: 74px;
   }
 }

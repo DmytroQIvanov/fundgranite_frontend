@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import styles from "./Donate.module.scss";
+import styles from "../../Donate.module.scss";
 const DetailsOption = () => {
   const { t } = useTranslation();
 
@@ -8,7 +8,7 @@ const DetailsOption = () => {
     <div>
       {/*--- NATIONAL CURRENCY ---*/}
       <div className={styles.donate_line} />
-      <div style={{}}>
+      <div style={{ color: "white" }}>
         <h1>{t("donate.detailsForTransfersInNationalCurrency")}</h1>
         <span className={styles.donate_title}>
           <div className={styles.donate_propsNumber}>
@@ -44,9 +44,10 @@ const DetailsOption = () => {
           </div>
         </span>
       </div>
+      <div className={styles.donate_line} />
 
       {/*--- FOREIGHT CURRENCY ---*/}
-      <div style={{}}>
+      <div style={{ color: "white" }}>
         <h1>{t("donate.detailsForTransfersInForeignCurrency")}</h1>
         <span className={styles.donate_title}>
           <div className={styles.donate_propsNumber}>

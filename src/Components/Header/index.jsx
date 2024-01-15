@@ -5,6 +5,10 @@ import Link from "./Link";
 import { useTranslation } from "react-i18next";
 import MobileSidebar from "../MobileSidebar";
 import ReSelect from "../ReComponents/ReSelect";
+import homeSVG from "../../Assets/home-1-svgrepo-com.svg";
+import aboutUsSVG from "../../Assets/about-us-svgrepo-com.svg";
+import donateSVG from "../../Assets/donate-svgrepo-com.svg";
+import activitySVG from "../../Assets/activity-heart-svgrepo-com.svg";
 
 const LANGUAGES = [
   {
@@ -21,14 +25,17 @@ const LINKS = [
   {
     link: "/",
     text: "header.main",
+    icon: homeSVG,
   },
   {
     link: "/aboutUs",
     text: "header.aboutUs",
+    icon: aboutUsSVG,
   },
   {
-    link: "/blog",
+    link: "/activity",
     text: "header.blog",
+    icon: activitySVG,
   },
 
   {
@@ -36,6 +43,7 @@ const LINKS = [
     text: "header.donate",
     style: { fontFamily: "roboto" },
     underline: true,
+    icon: donateSVG,
   },
 ];
 const Header = () => {

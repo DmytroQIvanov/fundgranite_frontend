@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./Footer.module.scss";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/LOGO.svg";
+import Button from "../ReComponents/Button";
+import ReButton from "../ReComponents/Button";
 
 // *Угода користувача (Terms & Conditions);
 // *Політика конфіденційності (Privacy Policy);
@@ -10,7 +12,7 @@ import logo from "../../Assets/LOGO.svg";
 // *Політика з безпеки передачі реквізитів платіжної картки.
 const FooterComponent = () => {
   return (
-    <div>
+    <div style={{ marginTop: "35px" }}>
       <footer className={styles.footer}>
         <div className={styles.footer_container}>
           <div className={styles.footer_innerContainer}>
@@ -27,11 +29,20 @@ const FooterComponent = () => {
               </div>
               <div className={styles.footer_block}>
                 <div className={styles.footer_title}>Контактна інформація</div>
-                <span>forpostgranite@gmail.com</span>
-                <span>+380999999999</span>
-                <span>Передзвонить вам?</span>
+                <div>
+                  <div className={styles.footer_secondText}>
+                    пн-пт 10:00-19:00
+                  </div>
+                  <span>forpostgranite@gmail.com</span>
+                </div>
+                <span>+380 73 296 83 15</span>
+
+                <span>Перетелефонувати вам?</span>
               </div>
-              <div>
+              <div className={styles.footer_elem3}>
+                <ReButton type={"brownBorder"} link={"/donate"}>
+                  Підтримати
+                </ReButton>
                 <img src={logo} />
               </div>
             </div>

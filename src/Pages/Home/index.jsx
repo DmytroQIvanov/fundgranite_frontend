@@ -28,19 +28,19 @@ const HomePage = () => {
           marginBottom: "30px",
         }}
       >
-        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-        ullamcorper sapien sed sapien convallis blandit. Etiam ullamcorper
-        lectus lorem, id sollicitudin ligula blandit vel. Suspendisse porta
-        volutpat nibh, nec tincidunt nisl condimentum in. Aliquam at sagittis
-        turpis, vel maximus nisi. Donec rutrum ornare mi, vitae laoreet odio
-        commodo vitae. Aenean at purus auctor, efficitur turpis elementum,
-        congue ex. Duis ac nisl eget augue egestas aliquam. Phasellus suscipit,
-        velit non rhoncus congue, ligula lectus consequat quam, quis condimentum
-        velit nunc sit amet quam.
+        {/*<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>*/}
+        Наш фонд створений з метою підтримки та допомоги військовим, які віддано
+        служать нашій країні. Ми віримо у необхідність та важливість надання
+        підтримки тим, хто ризикує своїм життям для нашого безпеки та свободи.
       </div>
       <div style={{ display: "grid", rowGap: "30px" }}>
         <Effect
+          titleTop={"Наша місія:"}
+          descriptionTop={`Благодійний фонд для військових зобов'язаний забезпечити
+          військовослужбовцям необхідну підтримку у важкі моменти. Ми працюємо
+          на благо наших героїв, щоб зробити їхнє життя комфортнішим та
+          безпечнішим. Допомагаємо військовим частинами та іншим окремим
+          спецпідрозділам, які потребують`}
           imgUrl={"https://antytila.ua/wp-content/uploads/2022/08/5-scaled.jpg"}
         />
         <div
@@ -53,18 +53,33 @@ const HomePage = () => {
             marginBottom: "30px",
           }}
         >
-          <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          ullamcorper sapien sed sapien convallis blandit. Etiam ullamcorper
-          lectus lorem, id sollicitudin ligula blandit vel. Suspendisse porta
-          volutpat nibh, nec tincidunt nisl condimentum in. Aliquam at sagittis
-          turpis, vel maximus nisi. Donec rutrum ornare mi, vitae laoreet odio
-          commodo vitae. Aenean at purus auctor, efficitur turpis elementum,
-          congue ex. Duis ac nisl eget augue egestas aliquam. Phasellus
-          suscipit, velit non rhoncus congue, ligula lectus consequat quam, quis
-          condimentum velit nunc sit amet quam.
+          <h1>Наша місія:</h1>
+          Благодійний фонд для військових зобов'язаний забезпечити
+          військовослужбовцям необхідну підтримку у важкі моменти. Ми працюємо
+          на благо наших героїв, щоб зробити їхнє життя комфортнішим та
+          безпечнішим. Допомагаємо військовим частинами та іншим окремим
+          спецпідрозділам, які потребують
         </div>
-        <Effect imgUrl={imgHome} />
+        <Effect
+          imgUrl={imgHome}
+          titleTop={"Ви можете стати топ донатером!"}
+          descriptionTop={
+            <span>
+              Ми вдячні тим, хто разом з нами допомогає в цій справі і зі згоди
+              донатерів показуємо найбільші донати! <br />{" "}
+              <div style={{ marginTop: "20px", fontWeight: "bolder" }}>
+                Найбільші донати:
+              </div>
+              <ul>
+                <li>Приклад - 302.000 грн</li>
+                <li>Приклад - 111.000 грн</li>
+                <li>Приклад - 32.000 грн</li>
+                <li>Приклад - 18.000 грн</li>
+                <li>Приклад - 3.000 грн</li>
+              </ul>
+            </span>
+          }
+        />
         <div
           style={{
             width: "80%",
@@ -75,16 +90,11 @@ const HomePage = () => {
             marginBottom: "30px",
           }}
         >
-          <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          ullamcorper sapien sed sapien convallis blandit. Etiam ullamcorper
-          lectus lorem, id sollicitudin ligula blandit vel. Suspendisse porta
-          volutpat nibh, nec tincidunt nisl condimentum in. Aliquam at sagittis
-          turpis, vel maximus nisi. Donec rutrum ornare mi, vitae laoreet odio
-          commodo vitae. Aenean at purus auctor, efficitur turpis elementum,
-          congue ex. Duis ac nisl eget augue egestas aliquam. Phasellus
-          suscipit, velit non rhoncus congue, ligula lectus consequat quam, quis
-          condimentum velit nunc sit amet quam.
+          <h1>Благодійний фонд для військових</h1>
+          Це спільна справа, і кожен ваш внесок робить світ кращим для наших
+          справжніх героїв. Долучайтеся до нашої спільноти та допомагайте нам
+          формувати майбутнє військових в Україні. Дякуємо за вашу доброту та
+          підтримку!
         </div>
         <GreenBlock />
         {/*<Goal />*/}

@@ -26,7 +26,8 @@ const MobileSidebar = ({ sidebarState, setSidebarState, links }) => {
                 onClick={onLinkClick}
                 className={"prevent-select"}
               >
-                {t(elem.text)}
+                <span>{t(elem.text)}</span>
+                <img src={elem.icon} />
               </Link>
             );
           })}

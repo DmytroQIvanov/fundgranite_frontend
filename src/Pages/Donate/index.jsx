@@ -4,6 +4,9 @@ import { useTranslation } from "react-i18next";
 import Postpaid from "./Postpaid/Postpaid";
 import Beforepay from "./Beforepay/Beforepay";
 
+import ApplePaySVG from "../../Assets/Apple_Pay_logo.svg";
+import GooglePaySVG from "../../Assets/Google_Pay_Logo.svg";
+
 const chooseValueUAN = [
   { value: 50, text: "50 UAH" },
   { value: 100, text: "100 UAH" },
@@ -32,22 +35,23 @@ export const chooseCurrency = [
 ];
 
 export const paymentOptions = [
-  { text: "Через Google Pay && Apple Pay" },
+  { text: "Google Pay & Apple Pay" },
+  //icons: [ApplePaySVG, GooglePaySVG] },
   { text: "Вручну" },
-  { text: "По реквізитам" },
+  { text: "За реквізитам" },
 ];
 const DonatePage = () => {
   const selectCurrencyFunction = (selectedCurrencyValue) => {
     let value;
     switch (selectedCurrencyValue) {
-      case 1:
+      case 0:
         value = chooseValueUAN;
         break;
-      case 2:
+      case 1:
         value = chooseValueUSD;
         break;
 
-      case 3:
+      case 2:
         value = chooseValueEUR;
         break;
 

@@ -1,7 +1,7 @@
 {
   "hello": "Hello222221111111",
   "cancel": "Cancel",
-  "continue": "Comtinue",
+  "continue": "TEST",
 
   "header": {
     "main": "Home",
@@ -22,5 +22,17 @@
   "main": {
     "support": "Support",
     "title1": "Fund for collecting funds for pickup trucks"
+  },
+  "wrapper": {
+    "recallMe": "Call me back!"
+  },
+  "footer": {
+    "legalInformation": "Legal information",
+    "contactInformation": "Contact information",
+    "contact": {
+      "callYouBack": "Call you back?"
+    },
+    "supportBtn": "Support"
+
   }
 }

@@ -5,23 +5,24 @@ const GreenBlock = () => {
   return (
     <div className={styles.greenBlock}>
       <div className={styles.greenBlock_container}>
-        <div className={styles.greenBlock_title}>Текст</div>
+        <div className={styles.greenBlock_title}>Наші ініціативи</div>
         <div className={styles.greenBlock_line} />
         <div className={styles.greenBlock_description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-          ullamcorper sapien sed sapien convallis blandit. Etiam ullamcorper
-          lectus lorem, id sollicitudin ligula blandit vel. Suspendisse porta
-          volutpat nibh, nec tincidunt nisl condimentum in. Aliquam at sagittis
-          turpis, vel maximus nisi. Donec rutrum ornare mi, vitae laoreet odio
-          commodo vitae. Aenean at purus auctor, efficitur turpis elementum,
-          congue ex. Duis ac nisl eget augue egestas aliquam. Phasellus
-          suscipit, velit non rhoncus congue, ligula lectus consequat quam, quis
-          condimentum velit nunc sit amet quam.  Cras in elit vulputate, tempor
-          urna ut, tristique dolor. Maecenas urna diam, iaculis sit amet lectus
-          vel, condimentum malesuada sapien. Etiam convallis volutpat augue et
-          ultrices. Pellentesque tristique feugiat nisi, eget tempor nulla.
-          Morbi in fermentum purus. Aliquam vel magna a est venenatis commodo ac
-          ac est. Proin id purus pretium, lacinia tellus at, iaculis augue.
+          <ul>
+            <li>
+              <b>Фінансова допомога: </b>Надаємо фінансову допомогу
+              військовослужбовцям та їх родинам для покриття різних витрат,
+              таких як медичні послуги, освіта, житло та інше.
+            </li>
+            <li>
+              <b>Медична підтримка: </b>Забезпечуємо доступ до реабілітації
+              після травм, отриманих на війні.
+            </li>
+            <li>
+              <b>Навчання та розвиток: </b>Забезпечуємо безкоштовне навчання
+              військовослужбовців на БпЛА різного типу
+            </li>
+          </ul>
         </div>
         <div className={styles.greenBlock_line} />
       </div>

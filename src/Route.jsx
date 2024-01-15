@@ -40,7 +40,7 @@ const Router = () => {
     },
 
     {
-      path: "/blog",
+      path: "/activity",
       element: <PageWrapper header footer></PageWrapper>,
     },
 

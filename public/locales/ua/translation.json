@@ -17,11 +17,14 @@
     "recipientBank": "Банк Одержувача",
     "detailsForTransfersInNationalCurrency": "Реквізити для переказів у національній валюті",
     "detailsForTransfersInForeignCurrency": "Реквізити для переказів в іноземній валюті",
-    "choosePaymentOption": "Оберіть варіант оплати"
+    "choosePaymentOption": "Оберіть спосіб пожертви"
   },
   "main": {
     "support": "Підтримати",
     "title1": "Фонд для збору коштів на пікапи"
 
+  },
+  "wrapper": {
+    "recallMe": "Перетелефонуйте мені!"
   }
 }

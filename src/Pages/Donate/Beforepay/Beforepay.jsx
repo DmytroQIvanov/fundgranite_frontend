@@ -1,61 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../Donate.module.scss";
 import { useTranslation } from "react-i18next";
 import { chooseCurrency, paymentOptions } from "../index";
-import GooglePayButton from "@google-pay/button-react";
-import ReInput from "../../../Components/ReComponents/Input";
-
-const GoogleDonateButton = ({ onPay, selectedCurrency, selectedValue }) => {
-  return (
-    <GooglePayButton
-      environment="TEST"
-      buttonType={"donate"}
-      paymentRequest={{
-        apiVersion: 2,
-        apiVersionMinor: 0,
-        allowedPaymentMethods: [
-          {
-            type: "CARD",
-            parameters: {
-              allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-              allowedCardNetworks: ["MASTERCARD", "VISA"],
-            },
-            tokenizationSpecification: {
-              type: "PAYMENT_GATEWAY",
-              parameters: {
-                gateway: "example",
-                gatewayMerchantId: "exampleGatewayMerchantId",
-              },
-            },
-          },
-        ],
-        merchantInfo: {
-          merchantId: "12345678901234567890",
-          merchantName: "Demo Merchant",
-        },
-        transactionInfo: {
-          totalPriceStatus: "FINAL",
-          totalPriceLabel: "Total",
-          totalPrice: `${selectedValue + 1}.00`,
-          currencyCode: chooseCurrency[selectedCurrency].text,
-          countryCode: "US",
-        },
-      }}
-      onLoadPaymentData={(paymentRequest) => {
-        onPay();
-
-        // console.log({
-        //   totalPriceStatus: "FINAL",
-        //   totalPriceLabel: "Total",
-        //   totalPrice: `${selectedValue + 1}.00`,
-        //   currencyCode: `${selectedCurrency + 1}`,
-        //   countryCode: "US",
-        // });
-        console.log("load payment data", paymentRequest);
-      }}
-    />
-  );
-};
+import AutoOption from "../PaymentOptions/AutoOption";
+import DetailsOption from "../PaymentOptions/DetaisOption";
+import ManualOption from "../PaymentOptions/ManualOption";
 
 const Beforepay = ({
   onClickCurrency,
@@ -68,6 +17,51 @@ const Beforepay = ({
   onClickPaymentValue,
 }) => {
   const { t } = useTranslation();
+
+  const [selectedPaymentOptionNode, setSelectedPaymentOptionNode] = useState();
+
+  useEffect(() => {
+    switch (selectedPaymentOption) {
+      case 0:
+        setSelectedPaymentOptionNode(
+          <AutoOption
+            {...{
+              onClickCurrency,
+              selectedCurrency,
+              selectedCurrencyArray,
+              onClickPaymentValue,
+              selectedValue,
+              onPay,
+            }}
+          />,
+        );
+        break;
+
+      case 1:
+        setSelectedPaymentOptionNode(<ManualOption />);
+        break;
+
+      case 2:
+        setSelectedPaymentOptionNode(<DetailsOption />);
+        break;
+
+      default:
+        setSelectedPaymentOptionNode(
+          <AutoOption
+            {...{
+              onClickCurrency,
+              selectedCurrency,
+              selectedCurrencyArray,
+              onClickPaymentValue,
+              selectedValue,
+              onPay,
+            }}
+          />,
+        );
+        break;
+    }
+  }, [selectedPaymentOption]);
+
   return (
     <div>
       <span className={styles.donate_title}>
@@ -75,11 +69,7 @@ const Beforepay = ({
       </span>
 
       <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          gap: "10px",
-        }}
+        className={`${styles.donate_valueBlock_container} ${styles.donate_valueBlock_container1}`}
       >
         {paymentOptions.map((elem, index) => {
           return (
@@ -94,83 +84,18 @@ const Beforepay = ({
                   : ""
               }`}
             >
-              <span className={styles.donate_valueBlockTitle}>{elem.text}</span>{" "}
+              <span className={styles.donate_valueBlockTitle}>
+                {elem.text}
+
+                {elem.icons?.map((elem) => (
+                  <img src={elem} width={200} />
+                ))}
+              </span>{" "}
             </div>
           );
         })}
       </div>
-      <div>
-        <span className={styles.donate_title}>
-          {t("donate.chooseCurrency")}:
-        </span>
-
-        <div className={styles.donate_valueBlock_container}>
-          {chooseCurrency.map((elem, index) => {
-            return (
-              <div
-                key={index}
-                onClick={() => {
-                  onClickCurrency(index);
-                }}
-                className={`${styles.donate_valueBlock} ${
-                  selectedCurrency == index
-                    ? styles.donate_valueBlock_active
-                    : ""
-                }`}
-              >
-                <span className={styles.donate_valueBlockTitle}>
-                  {elem.text}
-                </span>{" "}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div>
-        <span className={styles.donate_title}>{t("donate.chooseValue")}:</span>
-
-        <div className={styles.donate_valueBlock_container}>
-          {selectedCurrencyArray.map((elem, index) => {
-            return (
-              <div
-                key={index}
-                onClick={() => {
-                  onClickPaymentValue(index);
-                }}
-                className={`${styles.donate_valueBlock} ${
-                  selectedValue == index ? styles.donate_valueBlock_active : ""
-                }`}
-              >
-                <span className={styles.donate_valueBlockTitle}>
-                  {elem.text}
-                </span>{" "}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className={styles.donate_line} />
-
-      <div>
-        <span className={styles.donate_title}>Чи введіть вручну:</span>
-        <ReInput title={{ text: "Значення", color: "white" }} type={"number"} />
-      </div>
-      <div className={styles.donate_line} />
-
-      <div>
-        <span className={styles.donate_title}>
-          Допомогайте за допомогою Google Pay:
-        </span>
-
-        <div className={styles.donate_gooleDonate}>
-          <GoogleDonateButton
-            onPay={onPay}
-            selectedCurrency={selectedCurrency}
-            selectedValue={selectedValue}
-          />
-        </div>
-      </div>
+      {selectedPaymentOptionNode}
     </div>
   );
 };
