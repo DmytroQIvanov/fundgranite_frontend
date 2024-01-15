@@ -1,5 +1,12 @@
 @import "../../Styles";
 @import "../../screens";
+@keyframes heartAnim {
+  0%{
+
+  }
+  100%{}
+}
+
 .header {
   width: 100%;
   position: fixed;
@@ -109,11 +116,11 @@
   position: relative;
   //position: block;
   @media screen and (max-width: $medium) {
-    height: 74px;
+    height: 72px;
 
   }
 
   @media screen and (max-width: $small) {
-    height: 74px;
+    height: 72px;
   }
 }

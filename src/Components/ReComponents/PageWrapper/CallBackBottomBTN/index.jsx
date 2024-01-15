@@ -7,9 +7,7 @@ const CallBackBottomBTN = ({ onClick }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.callBackBTN} onClick={onClick}>
-      <span>
-        <PhoneSVG />
-      </span>
+      <PhoneSVG />
     </div>
   );
 };

@@ -7,7 +7,7 @@ const LoaderPage = () => {
     <div className={styles.loaderPage}>
       <div className={styles.loaderPage_logoDivContainer}>
         <div className={styles.loaderPage_logoDiv}>
-          <img src={logo} width={"200px"} />
+          <img src={logo} />
           <h1>Fund Granite</h1>
         </div>
       </div>

@@ -22,6 +22,13 @@ const FooterComponent = () => {
                 <Link to={"/public-offer"}>Public offer</Link>
                 <span>Terms & Conditions</span>
                 <span>Privacy Policy</span>
+                <Link
+                  to={
+                    "https://opendatabot.ua/pdf/company/4899/45270705-4899812-3869722-951ebb6f71fd78161381af1eb5f58482.pdf"
+                  }
+                >
+                  Витяг
+                </Link>
                 {/*<span>Політика використання файлів cookie</span>*/}
                 <span>
                   Політика з безпеки передачі реквізитів платіжної картки

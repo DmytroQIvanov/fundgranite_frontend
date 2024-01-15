@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import Effect from "../../Components/Effect/Effect";
 import imgHome from "../../Assets/photo_2024-01-06_18-01-16.jpg";
 import CustomModal from "../../Components/CustomModal";
+import TextBlockWithoutBackground from "../../Components/TextBlockWithoutBackground";
 
 const HomePage = () => {
   const { t, i18n } = useTranslation();
@@ -26,7 +27,7 @@ const HomePage = () => {
           fontSize: "26px",
           fontFamily: "Imbue",
           marginBottom: "30px",
-          height: "90px",
+          height: "60px",
         }}
       >
         {/*<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>*/}
@@ -81,24 +82,7 @@ const HomePage = () => {
             </span>
           }
         />
-        <div
-          style={{
-            width: "80%",
-            margin: "auto",
-            color: "#000000",
-            fontSize: "26px",
-            fontFamily: "Imbue",
-            marginBottom: "30px",
-          }}
-        >
-          <h1 style={{ textAlign: "center" }}>
-            Благодійний фонд для військових
-          </h1>
-          Це спільна справа, і кожен ваш внесок робить світ кращим для наших
-          справжніх героїв. Долучайтеся до нашої спільноти та допомагайте нам
-          формувати майбутнє військових в Україні. Дякуємо за вашу доброту та
-          підтримку!
-        </div>
+        <TextBlockWithoutBackground />
         <GreenBlock />
         {/*<Goal />*/}
       </div>

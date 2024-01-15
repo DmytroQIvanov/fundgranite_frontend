@@ -42,7 +42,7 @@ const LINKS = [
   {
     link: "/donate",
     text: "header.donate",
-    style: { fontFamily: "roboto" },
+    style: { fontFamily: "roboto", display: "flex" },
     underline: true,
     icon: donateSVG,
     icon2: redHeart,
@@ -128,8 +128,10 @@ const Header = () => {
                 style={elem?.style}
                 underline={elem?.underline}
               >
-                {t(elem.text)}
-                {/*{elem.icon2 && <img src={elem.icon2} width={30} />}*/}
+                <div style={{ display: "flex", gap: "5px" }}>
+                  {t(elem.text)}
+                  {elem.icon2 && <img src={elem.icon2} width={30} />}
+                </div>
               </Link>
             ))}
 
