@@ -49,7 +49,7 @@ const LINKS = [
     style: { fontFamily: "roboto", display: "flex" },
     underline: true,
     icon: donateSVG,
-    icon2: redHeart,
+    // icon2: redHeart,
     key: 3,
   },
 ];
