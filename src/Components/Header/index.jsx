@@ -164,6 +164,7 @@ const Header = ({ onPageAnim, currentIndex }) => {
         sidebarState={sidebarState}
         setSidebarState={setSidebarState}
         links={LINKS}
+        onPageAnim={onPageAnim}
       />
     </div>
   );
