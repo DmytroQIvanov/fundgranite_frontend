@@ -82,7 +82,7 @@ const HomePage = () => {
             </span>
           }
         />
-        <TextBlockWithoutBackground />
+        {/*<TextBlockWithoutBackground />*/}
         <GreenBlock />
         {/*<Goal />*/}
       </div>

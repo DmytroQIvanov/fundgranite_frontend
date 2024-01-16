@@ -7,7 +7,13 @@
   display: block;
   //height:300px;
     box-shadow: 3px 3px 3px 3px rgba(104, 104, 104, 0.24);
+  &_container + .pageSwapping {
+    background-color: red !important;
+
+  }
   &_container{
+
+
     width: 80%;
     margin: auto;
     padding: 30px 0 30px 0;

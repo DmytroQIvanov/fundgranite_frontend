@@ -10,6 +10,7 @@ import aboutUsSVG from "../../Assets/about-us-svgrepo-com.svg";
 import donateSVG from "../../Assets/donate-svgrepo-com.svg";
 import activitySVG from "../../Assets/activity-heart-svgrepo-com.svg";
 import redHeart from "../../Assets/redHeart.svg";
+import { useNavigate } from "react-router-dom";
 
 const LANGUAGES = [
   {
@@ -27,16 +28,19 @@ const LINKS = [
     link: "/",
     text: "header.main",
     icon: homeSVG,
+    key: 0,
   },
   {
     link: "/aboutUs",
     text: "header.aboutUs",
     icon: aboutUsSVG,
+    key: 1,
   },
   {
     link: "/activity",
     text: "header.blog",
     icon: activitySVG,
+    key: 2,
   },
 
   {
@@ -46,12 +50,14 @@ const LINKS = [
     underline: true,
     icon: donateSVG,
     icon2: redHeart,
+    key: 3,
   },
 ];
-const Header = () => {
+const Header = ({ onPageAnim, currentIndex }) => {
   const [selectedLanguage, setSelectedLanguage] = useState();
   const [sidebarState, setSidebarState] = useState(false);
 
+  let navigate = useNavigate();
   const { t, i18n } = useTranslation();
   useEffect(() => {
     setSelectedLanguage(i18n.language);
@@ -68,12 +74,13 @@ const Header = () => {
     <div>
       <header className={styles.header}>
         <div className={styles.header_container}>
-          <div className={styles.header_logo}>
+          <div className={styles.header_logo} onClick={() => navigate("/")}>
             <img src={logo} width={60} height={65} alt={"Fund Granite logo"} />
           </div>
           <h1
             style={{ color: "white", marginLeft: "10px" }}
             className={styles.header_title}
+            onClick={() => navigate("/")}
           >
             FUND GRANITE
           </h1>
@@ -127,10 +134,20 @@ const Header = () => {
                 link={elem.link}
                 style={elem?.style}
                 underline={elem?.underline}
+                onClick={onPageAnim}
+                index={index}
+                currentIndex={currentIndex}
+                LINKS={LINKS}
               >
                 <div style={{ display: "flex", gap: "5px" }}>
                   {t(elem.text)}
-                  {elem.icon2 && <img src={elem.icon2} width={30} />}
+                  {elem.icon2 && (
+                    <img
+                      src={elem.icon2}
+                      width={25}
+                      style={{ margin: "auto" }}
+                    />
+                  )}
                 </div>
               </Link>
             ))}

@@ -16,6 +16,7 @@
     display: flex;
     background-color: $green;
     box-shadow: 5px 5px 15px 8px rgba(30, 30, 30, 0.47);
+
   }
   &_logo {
     margin: auto 5px auto 5px;
@@ -51,6 +52,7 @@
     font-size: 20px;
     color: white;
     text-decoration: none !important;
+    cursor: pointer;
       border-bottom: 0px solid $default_dark;
 
     &:hover {

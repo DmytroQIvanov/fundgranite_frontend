@@ -1,0 +1,70 @@
+.pageWrapper{
+        display: flex;
+        flex-direction: column;
+    //width: 100vw;
+    //clip-path: inset(0 0 0 0);
+  //position: fixed;
+  //left: 0px;
+  //top: 0px;
+
+
+  &_Page{
+    overflow-x: hidden;
+    //overflow: hidden;
+    left: 0px;
+    //top: 80px;
+    //width: 100%;
+    min-height: 100vh;
+    //transition-duration: 1s;
+
+
+    &Anim__hide__ActiveLeft{
+      transform: translateX(90%);
+      transition-duration: 0s;
+      opacity: 0;
+    overflow: hidden;
+
+    }
+    &Anim__hide__InactiveLeft{
+      transition-duration: 0.4s;
+      opacity: 1;
+    overflow: hidden;
+    }
+    &Anim__show__ActiveLeft{
+      transform: translateX(-100%);
+      transition-duration: 0s;
+      opacity: 0;
+    overflow: hidden;
+
+    }
+    &Anim__show__InactiveLeft{
+      transition-duration: 0.4s;
+    overflow: hidden;
+
+    }
+
+    &Anim__hide__ActiveRight{
+      transform: translateX(-90%);
+      transition-duration: 0s;
+      opacity: 0;
+    overflow: hidden;
+    }
+    &Anim__hide__InactiveRight{
+      transition-duration: 0.4s;
+      opacity: 1;
+    overflow: hidden;
+    }
+    &Anim__show__ActiveRight{
+      transform: translateX(100%);
+      transition-duration: 0s;
+      opacity: 0;
+    overflow: hidden;
+
+    }
+    &Anim__show__InactiveRight{
+      transition-duration: 0.4s;
+    overflow: hidden;
+
+    }
+  }
+}
