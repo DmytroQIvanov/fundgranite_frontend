@@ -11,7 +11,6 @@ import styles from "./PageWrapper.module.scss";
 // import { h } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 // import { Redirect } from "react-router-dom";
-import { createBrowserHistory } from "history";
 import { useNavigate } from "react-router-dom";
 
 const PageWrapper = ({
