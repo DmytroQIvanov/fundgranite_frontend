@@ -13,6 +13,9 @@ import PageWrapper from "./Components/ReComponents/PageWrapper";
 import DonatePage from "./Pages/Donate";
 import HomePage from "./Pages/Home";
 import PublicOffer from "./Pages/PublicOffer";
+import AdminLogin from "./Pages/Admin/AdminLogin";
+import Activity from "./Pages/Activity";
+import ActivityPost from "./Pages/ActivityPost/ActivityPost";
 
 const Router = () => {
   const routerArray = createBrowserRouter([
@@ -41,7 +44,20 @@ const Router = () => {
 
     {
       path: "/activity",
-      element: <PageWrapper header footer></PageWrapper>,
+      element: (
+        <PageWrapper header footer>
+          <Activity />
+        </PageWrapper>
+      ),
+    },
+
+    {
+      path: "/activity/:id",
+      element: (
+        <PageWrapper header footer>
+          <ActivityPost />
+        </PageWrapper>
+      ),
     },
 
     {
@@ -52,11 +68,28 @@ const Router = () => {
         </PageWrapper>
       ),
     },
+
+    {
+      path: "/admin-login",
+      element: <AdminLogin />,
+    },
+
+    {
+      path: "/admin/posts",
+      element: <AdminLogin />,
+    },
+
+    {
+      path: "/admin/createPost",
+      element: <AdminLogin />,
+    },
   ]);
 
   return (
     <div>
-      <RouterProvider router={routerArray} />
+      <>
+        <RouterProvider router={routerArray} />
+      </>
     </div>
   );
 };

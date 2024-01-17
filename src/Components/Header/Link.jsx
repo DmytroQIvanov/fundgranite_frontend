@@ -20,7 +20,7 @@ const LinkComponent = ({
       (elem, index) => elem.link === location.pathname,
     );
     console.log("currentIndex", currentIndex, location.pathname, LINKS);
-    if (currentIndex.key < index) {
+    if (currentIndex?.key < index) {
       swipeSide = "Right";
     } else {
       swipeSide = "Left";

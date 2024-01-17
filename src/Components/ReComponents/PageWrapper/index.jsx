@@ -12,6 +12,7 @@ import styles from "./PageWrapper.module.scss";
 // import { useHistory } from "react-router-dom";
 // import { Redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const PageWrapper = ({
   children,
@@ -21,6 +22,10 @@ const PageWrapper = ({
   scrollToTop,
   callMeBackBtn = true,
 }) => {
+  const [callBackStates, setCallBackStates] = useState({
+    phone: "",
+    description: "",
+  });
   const [callBackModalState, setCallBackmodalState] = useState(false);
   const [currentPage, setCurrentPage] = useState("/");
   const [pageAnim, setPageAnim] = useState(null);
@@ -53,6 +58,13 @@ const PageWrapper = ({
   };
   const onClickCallBack = (value) => {
     setCallBackmodalState((prevState) => value ?? !prevState);
+  };
+
+  const onCallBackSend = () => {
+    if (callBackStates.phone) {
+      axios.post("https://fundgranite.com.ua/api/telegram", callBackStates);
+    }
+    onClickCallBack(false);
   };
   return (
     <div className={styles.pageWrapper}>
@@ -91,6 +103,11 @@ const PageWrapper = ({
               // defaultValue={}
               type={"number"}
               maxLength={13}
+              onChange={(value) => {
+                setCallBackStates((prevState) => {
+                  return { ...prevState, phone: value };
+                });
+              }}
             />
             <div style={{ marginTop: "10px" }}>
               <ReInput
@@ -98,13 +115,18 @@ const PageWrapper = ({
                 height={"300px"}
                 type={"textarea"}
                 placeholder={"Як можна допомогти ще?"}
+                onChange={(value) => {
+                  setCallBackStates((prevState) => {
+                    return { ...prevState, description: value };
+                  });
+                }}
               />
             </div>
             <div style={{ marginTop: "20px" }}>
               <ReButton
                 type={"brownBorder"}
                 onClick={() => {
-                  onClickCallBack(false);
+                  onCallBackSend();
                 }}
               >
                 Відправити

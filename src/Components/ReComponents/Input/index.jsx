@@ -8,6 +8,7 @@ const ReInput = ({
   height,
   defaultValue,
   maxLength,
+  onChange,
 }) => {
   const [inputState, setInputState] = useState(defaultValue);
 
@@ -16,7 +17,7 @@ const ReInput = ({
       setInputState();
     }
   }, [type]);
-  const onChange = (value) => {
+  const onChangeInput = (value) => {
     if (value.length > maxLength) {
       return;
     }
@@ -26,6 +27,10 @@ const ReInput = ({
       setInputState(value);
     }
   };
+
+  useEffect(() => {
+    onChange && onChange(inputState);
+  }, [inputState]);
   return (
     <div className={styles.reInput}>
       <div className={styles.reInput_container}>
@@ -40,7 +45,7 @@ const ReInput = ({
         {type == "textarea" ? (
           <textarea
             className={styles.reInput_textarea}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => onChangeInput(e.target.value)}
             placeholder={placeholder}
           />
         ) : (
@@ -48,7 +53,7 @@ const ReInput = ({
             type={type}
             className={styles.reInput_input}
             placeholder={placeholder}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => onChangeInput(e.target.value)}
             value={inputState}
           />
         )}

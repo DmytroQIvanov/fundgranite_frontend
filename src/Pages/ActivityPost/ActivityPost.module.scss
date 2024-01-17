@@ -1,0 +1,8 @@
+@import "../../screens";
+@import "../../screens";
+@import "../../mixins";
+.activityPost{
+  &_container{
+    @include insideBorderPC
+  }
+}

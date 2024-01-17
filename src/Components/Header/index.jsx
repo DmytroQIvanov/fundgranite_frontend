@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Header.module.scss";
-import logo from "../../Assets/LOGO.svg";
 import Link from "./Link";
 import { useTranslation } from "react-i18next";
 import MobileSidebar from "../MobileSidebar";
-import ReSelect from "../ReComponents/ReSelect";
+import { useNavigate } from "react-router-dom";
+// --- STYLES ---
+import styles from "./Header.module.scss";
+
+// --- ICONS ---
 import homeSVG from "../../Assets/home-1-svgrepo-com.svg";
 import aboutUsSVG from "../../Assets/about-us-svgrepo-com.svg";
 import donateSVG from "../../Assets/donate-svgrepo-com.svg";
 import activitySVG from "../../Assets/activity-heart-svgrepo-com.svg";
-import redHeart from "../../Assets/redHeart.svg";
-import { useNavigate } from "react-router-dom";
+import redHeart from "../../Assets/iconmonstr-heart-thin.svg";
+import logo from "../../Assets/LOGO.svg";
+import searchSVG from "../../Assets/search-svgrepo-com.svg";
 
 const LANGUAGES = [
   {
@@ -40,6 +43,7 @@ const LINKS = [
     link: "/activity",
     text: "header.blog",
     icon: activitySVG,
+    icon2: searchSVG,
     key: 2,
   },
 
@@ -49,7 +53,7 @@ const LINKS = [
     style: { fontFamily: "roboto", display: "flex" },
     underline: true,
     icon: donateSVG,
-    // icon2: redHeart,
+    icon2: redHeart,
     key: 3,
   },
 ];
