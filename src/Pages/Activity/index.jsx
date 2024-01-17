@@ -13,11 +13,30 @@ const Activity = () => {
       setFilteredPosts(posts);
       return;
     }
-    const filterBySearch = posts.filter((item) => {
+    let filterBySearch = posts.filter((item) => {
       if (item.uaTitle.toLowerCase().includes(filter.toLowerCase())) {
         return item;
       }
     });
+    if (filterBySearch.length === 0) {
+      filterBySearch = posts.filter((item) => {
+        if (
+          item.uaShortDescription.toLowerCase().includes(filter.toLowerCase())
+        ) {
+          return item;
+        }
+      });
+    }
+
+    if (filterBySearch.length === 0) {
+      filterBySearch = posts.filter((item) => {
+        if (
+          item.uaFullDescription.toLowerCase().includes(filter.toLowerCase())
+        ) {
+          return item;
+        }
+      });
+    }
     setFilteredPosts(filterBySearch);
   }, [filter, posts]);
 
@@ -33,11 +52,25 @@ const Activity = () => {
     <div>
       <SearchPanel onFilter={(value) => setFilter(value)} />
       <div
-        style={{ display: "flex", width: "80%", margin: "auto", gap: "20px" }}
+        style={{
+          display: "flex",
+          width: "80%",
+          margin: "auto",
+          gap: "20px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
       >
         {filteredPosts.map((elem) => (
           <PostBlock key={elem.id} {...elem} />
         ))}
+        {filteredPosts.length === 0 && (
+          <div
+            style={{ fontSize: "26px", margin: "auto", textAlign: "center" }}
+          >
+            Діяльність не знайдена..
+          </div>
+        )}
       </div>
     </div>
   );
