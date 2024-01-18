@@ -3,7 +3,7 @@ import GreenBlock from "../../Components/TextComponents/GreenBlock";
 
 const AboutUs = () => {
   return (
-    <div>
+    <div style={{ marginBottom: "200px" }}>
       <GreenBlock />
 
       {/*<h1*/}

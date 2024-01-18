@@ -65,6 +65,7 @@ const Activity = ({ admin }) => {
           gap: "20px",
           flexWrap: "wrap",
           justifyContent: "center",
+          height: "max-content",
         }}
       >
         {filteredPosts.map((elem) => (
