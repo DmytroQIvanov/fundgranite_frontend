@@ -1,0 +1,80 @@
+@import "../../../Styles";
+
+@keyframes onElemHover {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+.donatesBlock {
+  &_container {
+    width: 100%;
+    &Border {
+    }
+
+    &lList {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      text-align: center;
+      box-shadow: 0px 0px 20px 15px rgba(0, 0, 0, 0.38);
+
+      span {
+        margin: 15px 20px;
+        position: relative;
+        transition-duration: 0.3s;
+        &:after {
+          width: 0%;
+          content: " ";
+          height: 3px;
+          left: 0px;
+          bottom: -10px;
+          background-color: white;
+          position: absolute;
+            transition-duration: 1s;
+        }
+        &:hover {
+            //transition-duration: .3s;
+          &:after {
+            transition-duration: 1.3s;
+            width: 100%;
+            //animation: onElemHover 0.3s ease-in-out forwards ;
+          }
+        }
+      }
+    }
+  }
+  &:hover {
+    transition-duration: 0.5s;
+    &BorderElem1 {
+      left: 20px;
+      top: 20px;
+    }
+    &BorderElem2 {
+      left: 20px;
+      top: 20px;
+    }
+  }
+  &BorderElem1 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-top: 5px solid $brown;
+    border-left: 5px solid $brown;
+  }
+
+  &BorderElem2 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border-right: 5px solid $brown;
+    border-bottom: 5px solid $brown;
+  }
+}

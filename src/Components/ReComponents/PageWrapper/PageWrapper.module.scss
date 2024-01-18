@@ -66,5 +66,19 @@
     overflow: hidden;
 
     }
+
+
+
+    // ---HIDE--- //
+    &Anim__hide__Active{
+
+      transition-duration: 0.4s;
+      opacity: 1;
+
+    }
+    &Anim__hide__Inactive{
+      transition-duration: 0.4s;
+      opacity: 0;
+    }
   }
 }

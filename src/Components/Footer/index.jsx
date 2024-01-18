@@ -12,7 +12,7 @@ import ReButton from "../ReComponents/Button";
 // *Політика з безпеки передачі реквізитів платіжної картки.
 const FooterComponent = () => {
   return (
-    <div style={{ marginTop: "35px" }}>
+    <div>
       <footer className={styles.footer}>
         <div className={styles.footer_container}>
           <div className={styles.footer_innerContainer}>
@@ -27,7 +27,7 @@ const FooterComponent = () => {
                     "https://opendatabot.ua/pdf/company/4899/45270705-4899812-3869722-951ebb6f71fd78161381af1eb5f58482.pdf"
                   }
                 >
-                  Витяг
+                  Витяг з Єдиного державного реєстру юридичних осіб
                 </Link>
                 {/*<span>Політика використання файлів cookie</span>*/}
                 <span>

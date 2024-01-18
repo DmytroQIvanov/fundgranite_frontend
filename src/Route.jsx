@@ -16,6 +16,8 @@ import PublicOffer from "./Pages/PublicOffer";
 import AdminLogin from "./Pages/Admin/AdminLogin";
 import Activity from "./Pages/Activity";
 import ActivityPost from "./Pages/ActivityPost/ActivityPost";
+import AdminPosts from "./Pages/Admin/AdminPosts";
+import AboutUs from "./Pages/AboutUs";
 
 const Router = () => {
   const routerArray = createBrowserRouter([
@@ -39,7 +41,11 @@ const Router = () => {
 
     {
       path: "/aboutUs",
-      element: <PageWrapper header footer></PageWrapper>,
+      element: (
+        <PageWrapper header footer>
+          <AboutUs />
+        </PageWrapper>
+      ),
     },
 
     {
@@ -76,7 +82,7 @@ const Router = () => {
 
     {
       path: "/admin/posts",
-      element: <AdminLogin />,
+      element: <AdminPosts />,
     },
 
     {

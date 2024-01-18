@@ -23,6 +23,7 @@ const ActivityPost = () => {
         <div className={styles.activityPost_container}>
           <h1>{postData.uaTitle}</h1>
           <desc>{postData.uaFullDescription}</desc>
+          <img src={postData.url} />
         </div>
       ) : (
         <span>Loading</span>

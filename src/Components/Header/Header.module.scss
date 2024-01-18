@@ -1,10 +1,35 @@
 @import "../../Styles";
 @import "../../screens";
 @keyframes heartAnim {
-  0%{
-
+  0% {
+    transform: scale(1);
   }
-  100%{}
+  30% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+
+  65% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .header {
@@ -16,7 +41,6 @@
     display: flex;
     background-color: $green;
     box-shadow: 5px 5px 15px 8px rgba(30, 30, 30, 0.47);
-
   }
   &_logo {
     margin: auto 5px auto 5px;
@@ -31,15 +55,14 @@
     gap: 30px;
   }
 
-  &_donateBtn{
-    background-color: $brown ;
+  &_donateBtn {
+    background-color: $brown;
     border-radius: 10px;
     //border: 4px solid $brown;
-    &:hover{
-      transition-duration: .3s;
+    &:hover {
+      transition-duration: 0.3s;
       background-color: white;
       background-color: $green_darker;
-
     }
   }
   &_link {
@@ -53,7 +76,7 @@
     color: white;
     text-decoration: none !important;
     cursor: pointer;
-      border-bottom: 0px solid $default_dark;
+    border-bottom: 0px solid $default_dark;
 
     &:hover {
       background-color: $green_darker;
@@ -79,9 +102,8 @@
     cursor: pointer;
   }
 
-  &_selectLanguage{
-
-    &_option{
+  &_selectLanguage {
+    &_option {
       background-color: $green_dark;
     }
   }
@@ -108,6 +130,24 @@
       display: none;
     }
   }
+  &_heart {
+    animation: heartAnim infinite 1.9s;
+  }
+
+  &_searchContainer {
+    height: 100%;
+    transition-duration: 1.3s;
+    display: flex;
+    &:hover {
+      //background-color: $brown;
+    }
+    &_search {
+    transition-duration: 1.3s;
+      &:hover {
+        transform: rotate(32deg);
+      }
+    }
+  }
 }
 
 .headerMock {
@@ -119,7 +159,6 @@
   //position: block;
   @media screen and (max-width: $medium) {
     height: 72px;
-
   }
 
   @media screen and (max-width: $small) {

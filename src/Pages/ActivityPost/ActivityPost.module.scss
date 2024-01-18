@@ -3,6 +3,13 @@
 @import "../../mixins";
 .activityPost{
   &_container{
-    @include insideBorderPC
+    @include insideBorderPC;
+    display: flex;
+    flex-direction: column;
+    img{
+      //width: 300px;
+      height: 400px;
+      object-fit: cover;
+    }
   }
 }

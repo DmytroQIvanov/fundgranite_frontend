@@ -66,6 +66,11 @@ const PageWrapper = ({
     }
     onClickCallBack(false);
   };
+
+  // let wrapperClassString
+  // switch () {
+  //
+  // }
   return (
     <div className={styles.pageWrapper}>
       <ScrollToTop />

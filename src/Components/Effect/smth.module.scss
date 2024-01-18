@@ -2,7 +2,7 @@
 @import "../../screens";
 @import "../../Styles";
 .effect {
-  height: 900px;
+  height: 800px;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -59,7 +59,7 @@
     }
   }
   @media screen and (max-width: $medium) {
-    height: 1200px;
+    height: 1000px;
 
     &_borderElement {
       &Top {

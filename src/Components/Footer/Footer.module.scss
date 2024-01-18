@@ -7,14 +7,14 @@
   z-index: 100;
   &_container {
     width: 100%;
-    height: 200px;
+    height: 300px;
     background-color: $brown;
     color: white;
     display: flex;
     font-size: 12px;
   }
   &_innerContainer {
-    margin: auto 10% auto 10%;
+    margin: 20px 10% auto 10%;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -49,6 +49,7 @@
 
     span {
       cursor: pointer;
+      margin: 8px;
     }
     a {
       color: white;
@@ -68,18 +69,20 @@
   }
   @media screen and (max-width: $small) {
     &_container {
-      height: 340px;
+      height: 450px;
     }
     &_innerContainer {
       //height: 340px;
       font-size: 10px;
-      margin: 20px 5% 20px 5%;
+      margin: 40px 5% 20px 5%;
       //width: 100%;
     }
     &_elem1 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       //grid-template-rows: 0.1fr 0.1fr 0.1fr;
+      span{
+      }
     }
 
     &_elem3 {

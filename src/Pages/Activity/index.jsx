@@ -3,10 +3,11 @@ import axios from "axios";
 import PostBlock from "../../Components/PostBlock";
 import SearchPanel from "../../Components/SearchPanel";
 
-const Activity = () => {
+const Activity = ({ admin }) => {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [filter, setFilter] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (filter === "") {
@@ -41,13 +42,18 @@ const Activity = () => {
   }, [filter, posts]);
 
   useEffect(() => {
+    setLoading(true);
     axios.get("https://fundgranite.com.ua/api/post").then((resp) => {
+      setLoading(false);
       console.log(resp.data);
       if (resp.data) {
         setPosts(resp.data);
       }
     });
   }, []);
+  const onPostDelete = (postId) => {
+    setPosts((prevState) => prevState.filter((elem) => elem.id !== postId));
+  };
   return (
     <div>
       <SearchPanel onFilter={(value) => setFilter(value)} />
@@ -62,9 +68,22 @@ const Activity = () => {
         }}
       >
         {filteredPosts.map((elem) => (
-          <PostBlock key={elem.id} {...elem} />
+          <PostBlock
+            key={elem.id}
+            {...elem}
+            admin={admin}
+            onPostDelete={onPostDelete}
+          />
         ))}
-        {filteredPosts.length === 0 && (
+
+        {filteredPosts.length === 0 && loading && (
+          <div
+            style={{ fontSize: "26px", margin: "auto", textAlign: "center" }}
+          >
+            Завантаження..
+          </div>
+        )}
+        {filteredPosts.length === 0 && !loading && (
           <div
             style={{ fontSize: "26px", margin: "auto", textAlign: "center" }}
           >

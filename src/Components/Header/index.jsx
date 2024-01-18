@@ -43,7 +43,16 @@ const LINKS = [
     link: "/activity",
     text: "header.blog",
     icon: activitySVG,
-    icon2: searchSVG,
+    icon2: (
+      <div className={styles.header_searchContainer}>
+        <img
+          className={styles.header_searchContainer_search}
+          src={searchSVG}
+          width={25}
+          style={{ margin: "auto" }}
+        />
+      </div>
+    ),
     key: 2,
   },
 
@@ -53,7 +62,14 @@ const LINKS = [
     style: { fontFamily: "roboto", display: "flex" },
     underline: true,
     icon: donateSVG,
-    icon2: redHeart,
+    icon2: (
+      <img
+        src={redHeart}
+        width={25}
+        style={{ margin: "auto" }}
+        className={styles.header_heart}
+      />
+    ),
     key: 3,
   },
 ];
@@ -145,13 +161,7 @@ const Header = ({ onPageAnim, currentIndex }) => {
               >
                 <div style={{ display: "flex", gap: "5px" }}>
                   {t(elem.text)}
-                  {elem.icon2 && (
-                    <img
-                      src={elem.icon2}
-                      width={25}
-                      style={{ margin: "auto" }}
-                    />
-                  )}
+                  {elem.icon2 && elem.icon2}
                 </div>
               </Link>
             ))}
