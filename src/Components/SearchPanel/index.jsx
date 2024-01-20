@@ -3,9 +3,11 @@ import styles from "./SearchPanel.module.scss";
 import ReInput from "../ReComponents/Input";
 import { useDebounce } from "../../Functions/Hooks/UseDebounce";
 import { ReactComponent as CrossSVG } from "../../Assets/cross-23.svg";
+import { useTranslation } from "react-i18next";
 
 const SearchPanel = ({ onFilter }) => {
   const [filterState, setFilterState] = useState("");
+  const { t } = useTranslation();
 
   const debouncedValue = useDebounce(filterState, 200);
   useEffect(() => {
@@ -19,7 +21,7 @@ const SearchPanel = ({ onFilter }) => {
     <div className={styles.searchPanel}>
       <div className={styles.searchPanel_container}>
         <input
-          placeholder={"Введіть текст для пошуку..."}
+          placeholder={t("activity.searchInputPlaceholder")}
           onChange={(event) => {
             setFilterState(event.target.value);
           }}

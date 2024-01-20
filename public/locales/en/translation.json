@@ -23,16 +23,48 @@
     "support": "Support",
     "title1": "Fund for collecting funds for pickup trucks"
   },
+   "aboutUs": {
+    "ourInitiatives": {
+      "title": "Our initiatives",
+      "block1": {
+        "title": "Financial Aid",
+        "description": "We provide financial assistance to military personnel and their families to cover various expenses, such as medical services, education, housing, and more."
+      },
+      "block2": {
+          "title": "Medical support",
+        "description": "We provide access to rehabilitation after injuries received in the war."
+
+      },
+      "block3": {
+        "title": "Training and development",
+        "description": "We provide free training of military personnel on UAVs of various types."
+      }
+    }},
   "wrapper": {
     "recallMe": "Call me back!"
   },
+
+
   "footer": {
     "legalInformation": "Legal information",
-    "contactInformation": "Contact information",
-    "contact": {
-      "callYouBack": "Call you back?"
-    },
-    "supportBtn": "Support"
+    "contactInformation": "Contact Information",
+    "publicOffer": "Public offer",
+    "callYouBack": "Call you back?",
+    "support": "Support",
+    "workingHours": "Mon - Fri, 10am - 7pm",
+    "extract": "Extract from the Unified State Register of Legal Entities",
+    "policyOnTheSecurity": "Payment card details security policy"
+  },
+  "callBackModal": {
+    "title": "Enter the number and we will call you back!",
+    "numberInputTitle": "Phone number",
+    "descriptionInputTitle": "Question (optional)",
+    "descriptionInputPlaceholder": "How else can you help?",
+    "send": "Send"
+  },
 
+  "activity": {
+    "searchInputPlaceholder": "Enter text to search...",
+    "noActivityFound": "No activity found"
   }
 }

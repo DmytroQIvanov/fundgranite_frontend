@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PostBlock from "../../Components/PostBlock";
 import SearchPanel from "../../Components/SearchPanel";
+import { useTranslation } from "react-i18next";
 
 const Activity = ({ admin, onPageAnim }) => {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [filter, setFilter] = useState("");
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (filter === "") {
@@ -89,7 +91,7 @@ const Activity = ({ admin, onPageAnim }) => {
           <div
             style={{ fontSize: "26px", margin: "auto", textAlign: "center" }}
           >
-            Діяльність не знайдена..
+            {t("activity.noActivityFound")}
           </div>
         )}
       </div>

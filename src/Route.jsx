@@ -19,6 +19,7 @@ import ActivityPost from "./Pages/ActivityPost/ActivityPost";
 import AdminPosts from "./Pages/Admin/AdminPosts";
 import AboutUs from "./Pages/AboutUs";
 import Redirect from "./Components/Redirect";
+import AdminPostActivity from "./Pages/Admin/AdminPostActivity";
 
 const Router = () => {
   const mainRouteArray = [
@@ -113,7 +114,7 @@ const Router = () => {
 
     {
       path: "/admin/createPost",
-      element: <AdminLogin />,
+      element: <AdminPostActivity />,
     },
   ]);
 

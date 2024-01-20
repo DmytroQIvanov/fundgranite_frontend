@@ -29,6 +29,7 @@ const PageWrapper = ({
   });
   const [callBackModalState, setCallBackmodalState] = useState(false);
   const [currentPage, setCurrentPage] = useState("/");
+  const [currentFullPage, setCurrentFullPage] = useState("/ua");
   const [pageAnim, setPageAnim] = useState(null);
   const [pageAnimOption, setPageAnimOption] = useState("swipe");
   const [pageAnimSide, setPageAnimSide] = useState("Right");
@@ -40,36 +41,60 @@ const PageWrapper = ({
   let navigate = useNavigate();
 
   useEffect(() => {
+    setCurrentFullPage(location.pathname);
     if (path[1] === "ua" || path[1] === "en") setCurrentLanguage(path[1]);
     console.log("path[1]", path[1]);
-    onLanguageChange({ language: path[1] });
+    console.log("path", location.pathname);
+
+    onLanguageChange({ language: path[1], firstTime: true });
   }, []);
 
-  useEffect(() => {
-    setCurrentPage("/" + location.pathname.split("/").slice(2).join("/"));
-  }, []);
-
-  const onLanguageChange = ({ language = "ua" }) => {
+  const onLanguageChange = ({ language = "ua", firstTime }) => {
     // navigate(`/${currentLanguage}/`);
+
     setCurrentLanguage(language);
     i18n.changeLanguage(language);
-    if (language === "ua") {
+
+    if (!firstTime && language === "ua") {
       window.history.replaceState(
         null,
         "",
-        location.pathname.replace("en", "ua"),
+        currentFullPage.replace("/en", "/ua"),
       );
-    } else {
+      setCurrentFullPage((prevState) => prevState.replace("/en", "/ua"));
+    } else if (!firstTime) {
       window.history.replaceState(
         null,
         "",
-        location.pathname.replace("ua", "en"),
+        currentFullPage.replace("/ua", "/en"),
       );
+
+      setCurrentFullPage((prevState) => prevState.replace("/ua", "/en"));
     }
   };
 
+  useEffect(() => {
+    if (currentFullPage === "/") {
+      window.history.replaceState(null, "", "/ua");
+      setCurrentFullPage("/ua");
+      setCurrentLanguage("ua");
+      // return;
+    }
+    // if (path[1] === "ua" || path[1] === "en") setCurrentLanguage(path[1]);
+
+    if (
+      currentFullPage === "/" &&
+      (!currentFullPage.includes("ua") || !currentFullPage.includes("en"))
+    ) {
+      setCurrentPage(currentFullPage);
+    } else {
+      setCurrentPage("/" + currentFullPage.split("/").slice(2).join("/"));
+    }
+  }, [currentFullPage]);
+
   const navigateToCheckout = (url) => {
-    navigate(`/${currentLanguage}` + url);
+    setCurrentFullPage(`/${currentLanguage ?? "ua"}` + url);
+    navigate(`/${currentLanguage ?? "ua"}` + url);
   };
 
   const onPageAnim = ({
@@ -167,6 +192,9 @@ const PageWrapper = ({
           currentLanguage={currentLanguage}
         />
       )}
+      {/*{currentFullPage} -------*/}
+      {/*{currentPage}*/}
+      {/*-------{currentLanguage}*/}
       {/*{pageAnimSide} / {pageAnim}*/}
       <div
         className={`${styles.pageWrapper_Page} 
@@ -189,9 +217,9 @@ const PageWrapper = ({
             isOpened={callBackModalState}
             onClose={() => onClickCallBack(false)}
           >
-            <h3>Вкажіть номер і ми Вам перетелефонуємо!</h3>
+            <h3>{t("callBackModal.title")}</h3>
             <ReInput
-              title={{ text: "Номер телефону" }}
+              title={{ text: t("callBackModal.numberInputTitle") }}
               placeholder={"+380999999999"}
               // defaultValue={}
               type={"number"}
@@ -204,10 +232,10 @@ const PageWrapper = ({
             />
             <div style={{ marginTop: "10px" }}>
               <ReInput
-                title={{ text: "Питання (не обов'язково)" }}
+                title={{ text: t("callBackModal.descriptionInputTitle") }}
                 height={"300px"}
                 type={"textarea"}
-                placeholder={"Як можна допомогти ще?"}
+                placeholder={t("callBackModal.descriptionInputPlaceholder")}
                 onChange={(value) => {
                   setCallBackStates((prevState) => {
                     return { ...prevState, description: value };
@@ -222,7 +250,7 @@ const PageWrapper = ({
                   onCallBackSend();
                 }}
               >
-                Відправити
+                {t("callBackModal.send")}
               </ReButton>
             </div>
           </CustomModal>

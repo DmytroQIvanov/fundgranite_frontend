@@ -23,7 +23,7 @@
   &_container {
     width: 80%;
     padding: 30px 40px 60px 40px;
-    margin: auto;
+    margin: 30px auto 40px auto;
     background-color: $brown_light;
     border-radius: 10px;
     position: relative;
@@ -120,7 +120,8 @@
     }
 
     &_container {
-      width: 85%;
+      padding: 10px;
+      width: 90%;
     }
 
     &_valueBlock_container {
