@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./ActivityPost.module.scss";
 import ModalBtn from "../../Components/ModalBtn";
-const ActivityPost = () => {
+const ActivityPost = ({ onPageAnim }) => {
   const params = useParams();
   const navigare = useNavigate();
   console.log(params);
@@ -28,7 +28,11 @@ const ActivityPost = () => {
           <img src={postData.url} />
           <div
             onClick={() => {
-              navigare("/activity");
+              onPageAnim({
+                state: "hide",
+                url: "/activity",
+                pageAnimOption: "hide",
+              });
             }}
           >
             <ModalBtn />

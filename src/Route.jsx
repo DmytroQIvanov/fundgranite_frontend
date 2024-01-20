@@ -61,7 +61,7 @@ const Router = () => {
       path: "/activity/:id",
       element: (
         <PageWrapper header footer>
-          {(props) => <ActivityPost />}
+          {(props) => <ActivityPost {...props} />}
         </PageWrapper>
       ),
     },
