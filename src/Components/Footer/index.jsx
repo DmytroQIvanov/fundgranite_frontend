@@ -10,7 +10,7 @@ import ReButton from "../ReComponents/Button";
 // *Політика використання файлів cookie;
 // *Політика скасування та повернення платежів (обов'язкова за правилами VISA та Mastercard);
 // *Політика з безпеки передачі реквізитів платіжної картки.
-const FooterComponent = () => {
+const FooterComponent = ({ onPageAnim }) => {
   return (
     <div>
       <footer className={styles.footer}>
@@ -19,7 +19,14 @@ const FooterComponent = () => {
             <div className={styles.footer_elem1}>
               <div className={styles.footer_block}>
                 <div className={styles.footer_title}>Правова інформація</div>
-                <Link to={"/public-offer"}>Public offer</Link>
+                <div
+                  onClick={() => {
+                    onPageAnim({ url: "/public-offer" });
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
+                  Public offer
+                </div>
                 <span>Terms & Conditions</span>
                 <span>Privacy Policy</span>
                 <Link
@@ -47,7 +54,10 @@ const FooterComponent = () => {
                 <span>Перетелефонувати вам?</span>
               </div>
               <div className={styles.footer_elem3}>
-                <ReButton type={"brownBorder"} link={"/donate"}>
+                <ReButton
+                  type={"brownBorder"}
+                  onClick={() => onPageAnim({ url: "/donate" })}
+                >
                   Підтримати
                 </ReButton>
                 <img src={logo} />

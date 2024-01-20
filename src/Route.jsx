@@ -18,11 +18,12 @@ import Activity from "./Pages/Activity";
 import ActivityPost from "./Pages/ActivityPost/ActivityPost";
 import AdminPosts from "./Pages/Admin/AdminPosts";
 import AboutUs from "./Pages/AboutUs";
+import Redirect from "./Components/Redirect";
 
 const Router = () => {
-  const routerArray = createBrowserRouter([
+  const mainRouteArray = [
     {
-      path: "/",
+      path: "",
       element: (
         <PageWrapper header footer subheaderLogo>
           {(props) => <HomePage />}
@@ -31,7 +32,7 @@ const Router = () => {
     },
 
     {
-      path: "/donate",
+      path: "donate",
       element: (
         <PageWrapper header footer>
           {(props) => <DonatePage />}
@@ -40,7 +41,7 @@ const Router = () => {
     },
 
     {
-      path: "/aboutUs",
+      path: "aboutUs",
       element: (
         <PageWrapper header footer>
           {(props) => <AboutUs />}
@@ -49,7 +50,7 @@ const Router = () => {
     },
 
     {
-      path: "/activity",
+      path: "activity",
       element: (
         <PageWrapper header footer>
           {(props) => <Activity {...props} />}
@@ -58,7 +59,7 @@ const Router = () => {
     },
 
     {
-      path: "/activity/:id",
+      path: "activity/:id",
       element: (
         <PageWrapper header footer>
           {(props) => <ActivityPost {...props} />}
@@ -67,14 +68,37 @@ const Router = () => {
     },
 
     {
-      path: "/public-offer",
+      path: "public-offer",
       element: (
         <PageWrapper header footer>
           {(props) => <PublicOffer />}
         </PageWrapper>
       ),
     },
+  ];
+  const routerArray = createBrowserRouter([
+    {
+      path: "/",
+      // element
+      // children: [],
+      element: (
+        <PageWrapper header footer>
+          {(props) => <Redirect {...props} />}
+        </PageWrapper>
+      ),
+      // children: mainRouteArray,
+    },
+    {
+      path: "/ua/",
+      // element: <>111111</>,
+      children: mainRouteArray,
+    },
 
+    {
+      path: "/en/",
+      // element: <>111111</>,
+      children: mainRouteArray,
+    },
     {
       path: "/admin-login",
       element: <AdminLogin />,

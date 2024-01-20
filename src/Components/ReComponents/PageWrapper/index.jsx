@@ -13,6 +13,7 @@ import styles from "./PageWrapper.module.scss";
 // import { Redirect } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const PageWrapper = ({
   children,
@@ -32,25 +33,47 @@ const PageWrapper = ({
   const [pageAnimOption, setPageAnimOption] = useState("swipe");
   const [pageAnimSide, setPageAnimSide] = useState("Right");
   const location = useLocation();
-  useEffect(() => {
-    // console.log();
-    setCurrentPage(location.pathname);
-  }, []);
-  // const history = useHistory();
 
-  // let history = createBrowserHistory();
-  // history.listen(({ location, action }) => {
-  // this is called whenever new locations come in
-  // the action is POP, PUSH, or REPLACE
-  // });
+  const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState("ua");
+  const path = location.pathname.split("/");
   let navigate = useNavigate();
 
+  useEffect(() => {
+    if (path[1] === "ua" || path[1] === "en") setCurrentLanguage(path[1]);
+    console.log("path[1]", path[1]);
+    onLanguageChange({ language: path[1] });
+  }, []);
+
+  useEffect(() => {
+    setCurrentPage("/" + location.pathname.split("/").slice(2).join("/"));
+  }, []);
+
+  const onLanguageChange = ({ language }) => {
+    // navigate(`/${currentLanguage}/`);
+    setCurrentLanguage(language);
+    i18n.changeLanguage(language);
+    if (language === "ua") {
+      window.history.replaceState(
+        null,
+        "",
+        location.pathname.replace("en", "ua"),
+      );
+    } else {
+      window.history.replaceState(
+        null,
+        "",
+        location.pathname.replace("ua", "en"),
+      );
+    }
+  };
+
   const navigateToCheckout = (url) => {
-    navigate(url);
+    navigate(`/${currentLanguage}` + url);
   };
 
   const onPageAnim = ({
-    state: value,
+    state: value = "hide",
     url,
     swipeSide,
     pageAnimOption: pageAnimOptionResp,
@@ -132,10 +155,18 @@ const PageWrapper = ({
   // switch () {
   //
   // }
+
   return (
     <div className={styles.pageWrapper}>
       <ScrollToTop />
-      {header && <Header onPageAnim={onPageAnim} currentPage={currentPage} />}
+      {header && (
+        <Header
+          onPageAnim={onPageAnim}
+          currentPage={currentPage}
+          onLanguageChange={onLanguageChange}
+          currentLanguage={currentLanguage}
+        />
+      )}
       {/*{pageAnimSide} / {pageAnim}*/}
       <div
         className={`${styles.pageWrapper_Page} 
@@ -153,7 +184,7 @@ const PageWrapper = ({
           {children({ onPageAnim })}
           {/*</div>*/}
 
-          {footer && <FooterComponent />}
+          {footer && <FooterComponent onPageAnim={onPageAnim} />}
           <CustomModal
             isOpened={callBackModalState}
             onClose={() => onClickCallBack(false)}

@@ -73,18 +73,25 @@ const LINKS = [
     key: 3,
   },
 ];
-const Header = ({ onPageAnim, currentIndex, currentPage }) => {
+const Header = ({
+  onPageAnim,
+  currentIndex,
+  currentPage,
+  onLanguageChange,
+  currentLanguage,
+}) => {
   const [selectedLanguage, setSelectedLanguage] = useState();
   const [sidebarState, setSidebarState] = useState(false);
 
   let navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  useEffect(() => {
-    setSelectedLanguage(i18n.language);
-  }, []);
+  // useEffect(() => {
+  //   setSelectedLanguage(i18n.language);
+  // }, []);
   const onSelectLanguage = (value) => {
-    setSelectedLanguage(value);
-    i18n.changeLanguage(value);
+    onLanguageChange({ language: value });
+    // setSelectedLanguage(value);
+    // i18n.changeLanguage(value);
   };
 
   const onSidebarIconClick = () => {
@@ -119,7 +126,7 @@ const Header = ({ onPageAnim, currentIndex, currentPage }) => {
                   <span
                     onClick={() => onSelectLanguage(elem.code)}
                     style={
-                      elem.code === selectedLanguage
+                      elem.code === currentLanguage
                         ? { textDecoration: "underline", color: "white" }
                         : { color: "white" }
                     }

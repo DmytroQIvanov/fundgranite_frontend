@@ -15,11 +15,10 @@ const LinkComponent = ({
   const location = useLocation();
   console.log(location.pathname);
   console.log(link);
+  const currentUrl = "/" + location.pathname.split("/").slice(2).join("/");
   const onMiddleClick = () => {
     let swipeSide = "";
-    const currentIndex = LINKS.find(
-      (elem, index) => elem.link === location.pathname,
-    );
+    const currentIndex = LINKS.find((elem, index) => elem.link === currentUrl);
     console.log("currentIndex", currentIndex, location.pathname, LINKS);
     if (currentIndex?.key < index) {
       swipeSide = "Right";
@@ -29,6 +28,7 @@ const LinkComponent = ({
     onClick({ state: "hide", url: link, swipeSide, pageAnimOption: "swipe" });
   };
 
+  console.log("currentUrl", currentUrl);
   return (
     <div
       className={`${styles.header_link} ${
@@ -37,7 +37,7 @@ const LinkComponent = ({
           : styles.header_linkInactive
       } ${underline ? styles.header_donateBtn : ""} prevent-select`}
       style={style}
-      onClick={() => location.pathname !== link && onMiddleClick()}
+      onClick={() => currentUrl !== link && onMiddleClick()}
     >
       <div
       // className={`${styles.header_link} ${
