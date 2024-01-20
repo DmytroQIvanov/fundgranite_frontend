@@ -1,0 +1,28 @@
+@import "../../Styles";
+@import "../../screens";
+.modalBackBtn{
+
+
+  &_container{
+    display: none;
+  }
+  @media screen and (max-width: $small) {
+
+
+  &_container{
+    display: block;
+    padding: 10px;
+    position: fixed;
+    background-color: $green_darker;
+    left: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    svg{
+      fill: white;
+      width: 30px;
+      height: 30px;
+    }
+
+  }
+  }
+}

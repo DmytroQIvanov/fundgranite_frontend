@@ -10,6 +10,7 @@ const LinkComponent = ({
   onClick,
   LINKS,
   index,
+  currentPage,
 }) => {
   const location = useLocation();
   console.log(location.pathname);
@@ -25,13 +26,13 @@ const LinkComponent = ({
     } else {
       swipeSide = "Left";
     }
-    onClick("hide", link, swipeSide);
+    onClick({ state: "hide", url: link, swipeSide, pageAnimOption: "swipe" });
   };
 
   return (
     <div
       className={`${styles.header_link} ${
-        location.pathname === link
+        currentPage === link
           ? styles.header_linkActive
           : styles.header_linkInactive
       } ${underline ? styles.header_donateBtn : ""} prevent-select`}

@@ -6,9 +6,17 @@ import { ReactComponent as PhoneSVG } from "../../../../Assets/phone.svg";
 const CallBackBottomBTN = ({ onClick }) => {
   const { t } = useTranslation();
   return (
+    // <div
+    //   style={{
+    //     width: "100px",
+    //     height: "1000px",
+    //     position: "sticky",
+    //   }}
+    // >
     <div className={styles.callBackBTN} onClick={onClick}>
       <PhoneSVG />
     </div>
+    // </div>
   );
 };
 

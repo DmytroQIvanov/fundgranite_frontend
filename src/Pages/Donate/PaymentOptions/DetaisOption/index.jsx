@@ -97,6 +97,9 @@ const DetailsOption = () => {
                 position: "absolute",
                 right: "20px",
               }}
+              onClick={() => {
+                myFunction();
+              }}
             >
               Копіювати
             </button>

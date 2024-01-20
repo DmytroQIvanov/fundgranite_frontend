@@ -1,3 +1,4 @@
+@import "../../../screens";
 .gradientBlock {
   width: 80%;
   color: #000000;
@@ -5,7 +6,7 @@
   font-family: Imbue;
   margin: 40px auto  70px auto;
   //background-color: ;
-  background: linear-gradient(180deg, rgba(249,249,249,0) 10%, rgba(227,227,227,1) 69%);
+  background: linear-gradient(180deg, rgba(249,249,249,0) 10%, rgb(213, 212, 212) 69%);
 
   box-shadow: 20px 20px 10px 5px rgba(0, 0, 0, 0.38);
   padding: 10px;
@@ -14,4 +15,9 @@
   &_container{
     margin: 20px;
   }
+  @media screen and (max-width: $small) {
+    font-size: 22px;
+  }
+
+
 }

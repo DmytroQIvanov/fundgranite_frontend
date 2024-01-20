@@ -6,8 +6,16 @@ import axios from "axios";
 const PostBlock = (postData) => {
   return (
     <div className={styles.postBlock}>
-      <h1>
-        <Link to={`/activity/${postData.id}`}>{postData.uaTitle}</Link>
+      <h1
+        onClick={() => {
+          postData.onPageAnim({
+            state: "hide",
+            url: `/activity/${postData.id}`,
+            pageAnimOption: "hide",
+          });
+        }}
+      >
+        {postData.uaTitle}
       </h1>
       <h3>{postData.uaShortDescription}</h3>
       {/*<h3>{postData.uaFullDescription}</h3>*/}

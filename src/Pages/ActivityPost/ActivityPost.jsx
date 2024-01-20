@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./ActivityPost.module.scss";
+import ModalBtn from "../../Components/ModalBtn";
 const ActivityPost = () => {
   const params = useParams();
+  const navigare = useNavigate();
   console.log(params);
   const [postData, setPostData] = useState(null);
 
@@ -24,6 +26,13 @@ const ActivityPost = () => {
           <h1>{postData.uaTitle}</h1>
           <desc>{postData.uaFullDescription}</desc>
           <img src={postData.url} />
+          <div
+            onClick={() => {
+              navigare("/activity");
+            }}
+          >
+            <ModalBtn />
+          </div>
         </div>
       ) : (
         <span>Loading</span>

@@ -1,4 +1,5 @@
 @import "../../../Styles";
+@import "../../../screens";
 
 @keyframes onElemHover {
   0% {
@@ -20,8 +21,10 @@
       flex-direction: column;
       margin: auto;
       text-align: center;
+      background-color: $brown;
       box-shadow: 0px 0px 20px 15px rgba(0, 0, 0, 0.38);
 
+      padding: 10px;
       span {
         margin: 15px 20px;
         position: relative;
@@ -52,6 +55,7 @@
     &BorderElem1 {
       left: 20px;
       top: 20px;
+
     }
     &BorderElem2 {
       left: 20px;
@@ -64,8 +68,8 @@
     position: absolute;
     left: 10px;
     top: 10px;
-    border-top: 5px solid $brown;
-    border-left: 5px solid $brown;
+    border-top: 5px solid white;
+    border-left: 5px solid white;
   }
 
   &BorderElem2 {
@@ -74,7 +78,17 @@
     position: absolute;
     right: 10px;
     bottom: 10px;
-    border-right: 5px solid $brown;
-    border-bottom: 5px solid $brown;
+    border-right: 5px solid white;
+    border-bottom: 5px solid white;
   }
+  @media screen and (max-width: $small) {
+    &_container{
+    &lList{
+      padding: 20px;
+      //background-color: #2a3f32;
+
+    }
+    }
+  }
+
 }

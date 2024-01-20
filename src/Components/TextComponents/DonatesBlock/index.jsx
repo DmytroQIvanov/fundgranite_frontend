@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./DonatesBlock.module.scss";
 
 const DonatesBlock = () => {
+  const ref = useRef(null);
+  // var screenPosition = ref.getBoundingClientRect();
+  console.log(ref?.current?.getBoundingClientRect());
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+  console.log(scrollPosition);
+
   return (
-    <div className={styles.donatesBlock}>
+    <div
+      className={styles.donatesBlock}
+      ref={ref}
+      onScroll={() => {
+        console.log("////////////");
+      }}
+    >
       <div className={styles.donatesBlock_container}>
         <span
           style={{

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../Header";
 import FooterComponent from "../../Footer";
 import SubHeaderLogo from "../../SubHeaderLogo";
@@ -11,7 +11,7 @@ import styles from "./PageWrapper.module.scss";
 // import { h } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 // import { Redirect } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const PageWrapper = ({
@@ -29,7 +29,13 @@ const PageWrapper = ({
   const [callBackModalState, setCallBackmodalState] = useState(false);
   const [currentPage, setCurrentPage] = useState("/");
   const [pageAnim, setPageAnim] = useState(null);
+  const [pageAnimOption, setPageAnimOption] = useState("swipe");
   const [pageAnimSide, setPageAnimSide] = useState("Right");
+  const location = useLocation();
+  useEffect(() => {
+    // console.log();
+    setCurrentPage(location.pathname);
+  }, []);
   // const history = useHistory();
 
   // let history = createBrowserHistory();
@@ -43,13 +49,23 @@ const PageWrapper = ({
     navigate(url);
   };
 
-  const onPageAnim = (value, url, swipeSide) => {
+  const onPageAnim = ({
+    state: value,
+    url,
+    swipeSide,
+    pageAnimOption: pageAnimOptionResp,
+  }) => {
+    console.log("url", pageAnimOptionResp);
     setCurrentPage(url);
-    setPageAnimSide(swipeSide);
-    setPageAnim(value ?? null);
+    setPageAnimOption(pageAnimOptionResp);
+    if (pageAnimOptionResp === "swipe") {
+      setPageAnimSide(swipeSide);
+      setPageAnim(value ?? null);
+    } else {
+      setPageAnim(value ?? null);
+    }
     setTimeout(() => {
       setPageAnim("show");
-      // setPageAnimSide("right");
       navigateToCheckout(url);
       setTimeout(() => {
         setPageAnim(null);
@@ -67,35 +83,76 @@ const PageWrapper = ({
     onClickCallBack(false);
   };
 
-  // let wrapperClassString
+  const [wrapperClassString, setWrapperClassString] = useState("");
+
+  useEffect(() => {
+    setWrapperClassString(
+      pageAnimOption === "swipe"
+        ? `${
+            pageAnim === "show"
+              ? styles[`pageWrapper_PageAnim__show__Active${pageAnimSide}`]
+              : styles[`pageWrapper_PageAnim__show__Inactive${pageAnimSide}`]
+          }
+         ${
+           pageAnim === "hide"
+             ? styles[`pageWrapper_PageAnim__hide__Active${pageAnimSide}`]
+             : styles[`pageWrapper_PageAnim__hide__Inactive${pageAnimSide}`]
+         }`
+        : `${
+            pageAnim !== "hide"
+              ? styles[`pageWrapper_PageAnim__hide__Active`]
+              : styles[`pageWrapper_PageAnim__hide__Inactive`]
+          }
+          ${
+            pageAnim !== "show"
+              ? styles[`pageWrapper_PageAnim__hide__Active`]
+              : styles[`pageWrapper_PageAnim__hide__Inactive`]
+          }
+          `,
+    );
+    console.log("wrapperClassString", wrapperClassString);
+  }, [pageAnimOption, pageAnim, pageAnimSide]);
+  // let wrapperClassString =
+  //   pageAnimOption === "swipe"
+  //     ? `${
+  //         pageAnim === "show"
+  //           ? styles[`pageWrapper_PageAnim__show__Active${pageAnimSide}`]
+  //           : styles[`pageWrapper_PageAnim__show__Inactive${pageAnimSide}`]
+  //       }
+  //        ${
+  //          pageAnim === "hide"
+  //            ? styles[`pageWrapper_PageAnim__hide__Active${pageAnimSide}`]
+  //            : styles[`pageWrapper_PageAnim__hide__Inactive${pageAnimSide}`]
+  //        }`
+  //     : `${
+  //         pageAnim === "show"
+  //           ? styles[`pageWrapper_PageAnim__hide__Active`]
+  //           : styles[`pageWrapper_PageAnim__hide__Inactive`]
+  //       }`;
   // switch () {
   //
   // }
   return (
     <div className={styles.pageWrapper}>
       <ScrollToTop />
-      {header && <Header onPageAnim={onPageAnim} />}
+      {header && <Header onPageAnim={onPageAnim} currentPage={currentPage} />}
       {/*{pageAnimSide} / {pageAnim}*/}
       <div
         className={`${styles.pageWrapper_Page} 
         ${pageAnim ? "pageSwapping" : ""}
-        ${
-          pageAnim === "show"
-            ? styles[`pageWrapper_PageAnim__show__Active${pageAnimSide}`]
-            : styles[`pageWrapper_PageAnim__show__Inactive${pageAnimSide}`]
-        }
-         ${
-           pageAnim === "hide"
-             ? styles[`pageWrapper_PageAnim__hide__Active${pageAnimSide}`]
-             : styles[`pageWrapper_PageAnim__hide__Inactive${pageAnimSide}`]
-         }`}
+        ${wrapperClassString}
+        `}
       >
         <div>
-          {subheaderLogo && <SubHeaderLogo />}
-          <div style={{ margin: "20px 0px 20px 0px" }}>{children}</div>
           {callMeBackBtn && (
             <CallBackBottomBTN onClick={() => onClickCallBack(true)} />
           )}
+          {subheaderLogo && <SubHeaderLogo />}
+          {/*--- CHILDREN ---*/}
+          {/*<div style={{ margin: "20px 0px 20px 0px" }}>*/}
+          {children({ onPageAnim })}
+          {/*</div>*/}
+
           {footer && <FooterComponent />}
           <CustomModal
             isOpened={callBackModalState}

@@ -3,7 +3,7 @@ import axios from "axios";
 import PostBlock from "../../Components/PostBlock";
 import SearchPanel from "../../Components/SearchPanel";
 
-const Activity = ({ admin }) => {
+const Activity = ({ admin, onPageAnim }) => {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [filter, setFilter] = useState("");
@@ -74,6 +74,7 @@ const Activity = ({ admin }) => {
             {...elem}
             admin={admin}
             onPostDelete={onPostDelete}
+            onPageAnim={onPageAnim}
           />
         ))}
 

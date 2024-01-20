@@ -73,7 +73,7 @@ const LINKS = [
     key: 3,
   },
 ];
-const Header = ({ onPageAnim, currentIndex }) => {
+const Header = ({ onPageAnim, currentIndex, currentPage }) => {
   const [selectedLanguage, setSelectedLanguage] = useState();
   const [sidebarState, setSidebarState] = useState(false);
 
@@ -158,6 +158,7 @@ const Header = ({ onPageAnim, currentIndex }) => {
                 index={index}
                 currentIndex={currentIndex}
                 LINKS={LINKS}
+                currentPage={currentPage}
               >
                 <div style={{ display: "flex", gap: "5px" }}>
                   {t(elem.text)}
@@ -179,6 +180,7 @@ const Header = ({ onPageAnim, currentIndex }) => {
         setSidebarState={setSidebarState}
         links={LINKS}
         onPageAnim={onPageAnim}
+        currentPage={currentPage}
       />
     </div>
   );

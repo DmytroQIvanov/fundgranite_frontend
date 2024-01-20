@@ -8,6 +8,7 @@ const MobileSidebar = ({
   setSidebarState,
   links,
   onPageAnim,
+  currentPage,
 }) => {
   const { t } = useTranslation();
   const location = useLocation();
@@ -19,12 +20,17 @@ const MobileSidebar = ({
       (elem, index) => elem.link === location.pathname,
     );
     console.log("currentIndex", currentIndex, location.pathname, links);
-    if (currentIndex.key < index) {
+    if (currentIndex?.key < index) {
       swipeSide = "Right";
     } else {
       swipeSide = "Left";
     }
-    onPageAnim("hide", link, swipeSide);
+    onPageAnim({
+      state: "hide",
+      url: link,
+      swipeSide,
+      pageAnimOption: "swipe",
+    });
   };
   return (
     <div className={styles.mobileSidebar}>
@@ -38,9 +44,12 @@ const MobileSidebar = ({
         <div className={styles.mobileSidebar_linksContainer}>
           {links.map((elem, index) => {
             return (
-              <Link
+              <div
                 // to={elem.link}
-                className={"prevent-select"}
+                className={`${styles.mobileSidebar_linksContainer_elem} ${
+                  currentPage === elem.link &&
+                  styles.mobileSidebar_linksContainer_elem_active
+                } prevent-select`}
                 onClick={() =>
                   location.pathname !== elem.link &&
                   onLinkClick(elem.link, index)
@@ -48,7 +57,7 @@ const MobileSidebar = ({
               >
                 <span>{t(elem.text)}</span>
                 <img src={elem.icon} />
-              </Link>
+              </div>
             );
           })}
         </div>
