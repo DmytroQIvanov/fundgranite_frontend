@@ -49,7 +49,7 @@ const PageWrapper = ({
     setCurrentPage("/" + location.pathname.split("/").slice(2).join("/"));
   }, []);
 
-  const onLanguageChange = ({ language }) => {
+  const onLanguageChange = ({ language = "ua" }) => {
     // navigate(`/${currentLanguage}/`);
     setCurrentLanguage(language);
     i18n.changeLanguage(language);

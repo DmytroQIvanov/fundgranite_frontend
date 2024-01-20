@@ -83,7 +83,9 @@ const Router = () => {
       // children: [],
       element: (
         <PageWrapper header footer>
-          {(props) => <Redirect {...props} />}
+          {(props) => <HomePage />}
+
+          {/*{(props) => <Redirect {...props} />}*/}
         </PageWrapper>
       ),
       // children: mainRouteArray,
