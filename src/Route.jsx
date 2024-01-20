@@ -88,7 +88,7 @@ const Router = () => {
           {/*{(props) => <Redirect {...props} />}*/}
         </PageWrapper>
       ),
-      // children: mainRouteArray,
+      children: mainRouteArray,
     },
     {
       path: "/ua/",
