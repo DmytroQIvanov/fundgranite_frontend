@@ -9,6 +9,7 @@ import CustomModal from "../../Components/CustomModal";
 import TextBlockWithoutBackground from "../../Components/TextComponents/TextBlockWithoutBackground";
 import GradientBlock from "../../Components/TextComponents/GradientBlock";
 import DonatesBlock from "../../Components/TextComponents/DonatesBlock";
+import LastActivity from "../../Components/LastActivity";
 
 const HomePage = () => {
   const { t, i18n } = useTranslation();
@@ -45,6 +46,7 @@ const HomePage = () => {
           imgUrl={"https://antytila.ua/wp-content/uploads/2022/08/5-scaled.jpg"}
         />
         <GradientBlock />
+        {/*<LastActivity />*/}
         <Effect
           imgUrl={imgHome}
           titleTop={"Ви можете стати топ донатером!"}

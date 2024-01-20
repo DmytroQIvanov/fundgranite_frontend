@@ -2,6 +2,7 @@
 @import "../../screens";
 @import "../../mixins";
 .activityPost{
+  min-height: 100vh;
   &_container{
     @include insideBorderPC;
     display: flex;
