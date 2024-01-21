@@ -174,9 +174,9 @@ const PageWrapper = ({
           currentLanguage={currentLanguage}
         />
       )}
-      {currentFullPage} -------
-      {currentPage}
-      -------{currentLanguage}
+      {/*{currentFullPage} -------*/}
+      {/*{currentPage}*/}
+      {/*-------{currentLanguage}*/}
       {/*{pageAnimSide} / {pageAnim}*/}
       <div
         className={`${styles.pageWrapper_Page} 
