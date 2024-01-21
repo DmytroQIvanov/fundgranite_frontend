@@ -122,7 +122,7 @@ const Header = ({
           >
             {LANGUAGES.map((elem, index) => {
               return (
-                <div>
+                <div key={index}>
                   <span
                     onClick={() => onSelectLanguage(elem.code)}
                     style={
@@ -146,14 +146,24 @@ const Header = ({
 
           {/*--- MOBILE SIDEBAR ---*/}
           <div
-            className={styles.header_sidebarIcon}
+            className={`${styles.header_sidebarIcon} ${
+              sidebarState
+                ? styles.header_sidebarIcon__active
+                : styles.header_sidebarIcon__inactive
+            }`}
             onClick={() => {
               onSidebarIconClick();
             }}
           >
-            <div className={styles.header_sidebarIconDiv} />
-            <div className={styles.header_sidebarIconDiv} />
-            <div className={styles.header_sidebarIconDiv} />
+            <div
+              className={`${styles.header_sidebarIconDiv} ${styles.header_sidebarIconDiv_1}`}
+            />
+            <div
+              className={`${styles.header_sidebarIconDiv} ${styles.header_sidebarIconDiv_2}`}
+            />
+            <div
+              className={`${styles.header_sidebarIconDiv} ${styles.header_sidebarIconDiv_3}`}
+            />
           </div>
           <div className={styles.header_linksContainer}>
             {LINKS.map((elem, index) => (
@@ -166,6 +176,7 @@ const Header = ({
                 currentIndex={currentIndex}
                 LINKS={LINKS}
                 currentPage={currentPage}
+                key={index}
               >
                 <div style={{ display: "flex", gap: "5px" }}>
                   {t(elem.text)}

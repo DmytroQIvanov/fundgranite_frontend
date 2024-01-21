@@ -16,9 +16,7 @@ const MobileSidebar = ({
   const onLinkClick = (link, index) => {
     setSidebarState(false);
     let swipeSide = "";
-    const currentIndex = links.find(
-      (elem, index) => elem.link === location.pathname,
-    );
+    const currentIndex = links.find((elem, index) => elem.link === currentPage);
     console.log("currentIndex", currentIndex, location.pathname, links);
     if (currentIndex?.key < index) {
       swipeSide = "Right";
@@ -45,6 +43,7 @@ const MobileSidebar = ({
           {links.map((elem, index) => {
             return (
               <div
+                key={index}
                 // to={elem.link}
                 className={`${styles.mobileSidebar_linksContainer_elem} ${
                   currentPage === elem.link &&

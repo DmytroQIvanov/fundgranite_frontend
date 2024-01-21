@@ -30,7 +30,8 @@ const PageWrapper = ({
   const [callBackModalState, setCallBackmodalState] = useState(false);
   const [currentPage, setCurrentPage] = useState("/");
   const [currentFullPage, setCurrentFullPage] = useState("/ua");
-  const [pageAnim, setPageAnim] = useState(null);
+  // const [pageAnim, setPageAnim] = useState(null);
+  const [pageAnim, setPageAnim] = useState();
   const [pageAnimOption, setPageAnimOption] = useState("swipe");
   const [pageAnimSide, setPageAnimSide] = useState("Right");
   const location = useLocation();
@@ -75,8 +76,8 @@ const PageWrapper = ({
 
   useEffect(() => {
     if (currentFullPage === "/") {
-      window.history.replaceState(null, "", "/ua");
-      setCurrentFullPage("/ua");
+      window.history.replaceState(null, "", "/ua/");
+      setCurrentFullPage("/ua/");
       setCurrentLanguage("ua");
       // return;
     }
@@ -94,6 +95,7 @@ const PageWrapper = ({
 
   const navigateToCheckout = (url) => {
     setCurrentFullPage(`/${currentLanguage ?? "ua"}` + url);
+    // navigate(`/${currentLanguage ?? "ua"}` + url);
     navigate(`/${currentLanguage ?? "ua"}` + url);
   };
 
@@ -160,26 +162,6 @@ const PageWrapper = ({
     );
     console.log("wrapperClassString", wrapperClassString);
   }, [pageAnimOption, pageAnim, pageAnimSide]);
-  // let wrapperClassString =
-  //   pageAnimOption === "swipe"
-  //     ? `${
-  //         pageAnim === "show"
-  //           ? styles[`pageWrapper_PageAnim__show__Active${pageAnimSide}`]
-  //           : styles[`pageWrapper_PageAnim__show__Inactive${pageAnimSide}`]
-  //       }
-  //        ${
-  //          pageAnim === "hide"
-  //            ? styles[`pageWrapper_PageAnim__hide__Active${pageAnimSide}`]
-  //            : styles[`pageWrapper_PageAnim__hide__Inactive${pageAnimSide}`]
-  //        }`
-  //     : `${
-  //         pageAnim === "show"
-  //           ? styles[`pageWrapper_PageAnim__hide__Active`]
-  //           : styles[`pageWrapper_PageAnim__hide__Inactive`]
-  //       }`;
-  // switch () {
-  //
-  // }
 
   return (
     <div className={styles.pageWrapper}>
@@ -192,9 +174,9 @@ const PageWrapper = ({
           currentLanguage={currentLanguage}
         />
       )}
-      {/*{currentFullPage} -------*/}
-      {/*{currentPage}*/}
-      {/*-------{currentLanguage}*/}
+      {currentFullPage} -------
+      {currentPage}
+      -------{currentLanguage}
       {/*{pageAnimSide} / {pageAnim}*/}
       <div
         className={`${styles.pageWrapper_Page} 
