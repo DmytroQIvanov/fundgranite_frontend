@@ -9,7 +9,7 @@ const HelmetWrapper = ({ title, description, keywords, children }) => {
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
       </Helmet>
-      {children}
+      <div style={{ position: "relative" }}>{children}</div>
     </div>
   );
 };

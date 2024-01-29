@@ -18,15 +18,18 @@
     align-items: center; //display: flex;
   }
   &_logoDiv {
-    width: min-content;
+    width: max-content;
     height: min-content;
     display: flex;
     color: white;
+    flex-direction: column;
     gap: 30px;
     h1 {
+      text-align: center;
       margin: auto;
     }
     img {
+      margin: auto;
       width: 200px;
     }
   }

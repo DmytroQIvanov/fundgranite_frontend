@@ -24,8 +24,8 @@ const ActivityPost = ({ onPageAnim }) => {
       {postData ? (
         <div className={styles.activityPost_container}>
           <h1>{postData.uaTitle}</h1>
-          <desc>{postData.uaFullDescription}</desc>
           <img src={postData.url} />
+          <desc>{postData.uaFullDescription}</desc>
           <div
             onClick={() => {
               onPageAnim({

@@ -125,14 +125,16 @@
             transition-duration: 0.3s;
             background-color: #c9c9c9 !important;
             transform: rotate(135deg) !important;
+            width: 36px;
             top: 11px;
             //box-shadow: 3px -3px 3px 3px rgba(51, 51, 51, 0.44);
           }
           & :nth-child(2) {
             transition-duration: 0.3s;
             transform: rotate(-135deg) !important;
+            width: 36px;
             top: 11px;
-          }
+             }
           & :nth-child(3) {
             transition-duration: 0.3s;
             width: 0px;

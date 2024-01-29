@@ -6,7 +6,7 @@ const SubHeaderLogo = () => {
     <div className={styles.subHeader}>
       <div className={styles.subHeader_container}>
         <img src={logo} />
-        <h1>Fund Granite</h1>
+        <h1>БЛАГОДІЙНИЙ ФОНД «ФОРПОСТ ГРАНІТ»</h1>
       </div>
     </div>
   );

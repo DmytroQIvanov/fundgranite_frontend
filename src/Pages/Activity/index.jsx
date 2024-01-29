@@ -68,6 +68,7 @@ const Activity = ({ admin, onPageAnim }) => {
           flexWrap: "wrap",
           justifyContent: "center",
           height: "max-content",
+          marginBottom: "100px",
         }}
       >
         {filteredPosts.map((elem) => (

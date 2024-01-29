@@ -3,25 +3,44 @@
 .subHeader {
   margin: auto;
   width: 90%;
-  background-color: $green;
+  background-color: rgba(90, 108, 90, 0.73);
+  //background-color: $green;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1;
 
   &_container {
-    width: min-content;
+    width: 450px;
     margin: auto;
     display: flex;
     color: white;
     gap: 20px;
-    img{
+    //margin-bottom: 1000px;
+    img {
       width: 140px;
       margin-bottom: 4px;
     }
   }
 
-   @media screen and (max-width: $small) {
-
-
-   }
-
+  @media screen and (max-width: $small) {
+    &_container {
+    width: 100%;
+    gap: 0px;
+      img {
+        width: 60px;
+        padding: 4px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 18px;
+        height: max-content;
+        display: flex;
+        width: max-content;
+      }
+    }
+  }
 }

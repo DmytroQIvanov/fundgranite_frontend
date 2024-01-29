@@ -109,7 +109,7 @@ const Header = ({
             className={styles.header_title}
             onClick={() => navigate("/")}
           >
-            FUND GRANITE
+            ФОРПОСТ ГРАНІТ
           </h1>
           <div
             style={{
@@ -150,7 +150,7 @@ const Header = ({
               sidebarState
                 ? styles.header_sidebarIcon__active
                 : styles.header_sidebarIcon__inactive
-            }`}
+            } prevent-select`}
             onClick={() => {
               onSidebarIconClick();
             }}
