@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./MobileSidebar.module.scss";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import ScrollTrigger from "../ScrollTrigger";
 
 const MobileSidebar = ({
   sidebarState,
@@ -54,7 +55,9 @@ const MobileSidebar = ({
                   onLinkClick(elem.link, index)
                 }
               >
-                <span>{t(elem.text)}</span>
+                <ScrollTrigger endless={true}>
+                  <span>{t(elem.text)}</span>
+                </ScrollTrigger>
                 <img src={elem.icon} />
               </div>
             );

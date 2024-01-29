@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import styles from "./ScrollTrigger.module.scss";
-const ScrollTrigger = ({ children, className, style, defaultSide }) => {
+const ScrollTrigger = ({
+  children,
+  className,
+  style,
+  defaultSide,
+  endless,
+}) => {
   const myRef = useRef();
   const [active, setActive] = useState(false);
 
@@ -12,7 +18,11 @@ const ScrollTrigger = ({ children, className, style, defaultSide }) => {
   useEffect(() => {
     const observer = new IntersectionObserver((entries, observer) => {
       const entry = entries[0];
-      if (entry.isIntersecting) setActive(entry.isIntersecting);
+      if (endless) {
+        setActive(entry.isIntersecting);
+      } else {
+        if (entry.isIntersecting) setActive(entry.isIntersecting);
+      }
       console.log("entry", entry);
       console.log("entry.isIntersecting", entry.isIntersecting);
     });
