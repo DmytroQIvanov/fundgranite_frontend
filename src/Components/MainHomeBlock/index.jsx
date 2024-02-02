@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./MainHomeBlock.module.scss";
 import { ReactComponent as ControlArrow } from "../../Assets/right-arrow-svgrepo-com.svg";
 import PostSlider from "./PostSlider";
-// import postImg from "369115593_301046379171998_5060290123796350086_n.jpg";
+import postImg from "./369115593_301046379171998_5060290123796350086_n.jpg";
 
 const MainHomeBlock = () => {
   const postsArray = [
@@ -19,7 +19,18 @@ const MainHomeBlock = () => {
     },
     {
       imgUrl: "https://antytila.ua/wp-content/uploads/2022/08/5-scaled.jpg",
-      title: "Lorem text for example",
+      title: "Lorem text for example2",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur.`,
+    },
+
+    {
+      imgUrl: postImg,
+      title: "Lorem text for example3",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
