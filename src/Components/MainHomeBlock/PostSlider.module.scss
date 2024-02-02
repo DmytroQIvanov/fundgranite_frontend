@@ -28,6 +28,8 @@
       transform: translateY(-50%);
       right: 20px;
       z-index: 100;
+      width: max-content;
+
       &__active {
         svg {
           height: 60px !important;
@@ -48,6 +50,7 @@
       transform: translateY(-50%);
       left: 20px;
       z-index: 100;
+      width: max-content;
       //transform: ;
       &__active {
         svg {
