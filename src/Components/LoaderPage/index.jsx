@@ -4,7 +4,7 @@ import styles from "./LoaderPage.module.scss";
 
 const LoaderPage = () => {
   return (
-    <div className={styles.loaderPage}>
+    <div className={`${styles.loaderPage} prevent-select`}>
       <div className={styles.loaderPage_logoDivContainer}>
         <div className={styles.loaderPage_logoDiv}>
           <img src={logo} />

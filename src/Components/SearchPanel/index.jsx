@@ -33,7 +33,11 @@ const SearchPanel = ({ onFilter }) => {
           }}
           style={{ display: "flex", cursor: "pointer" }}
         >
-          <CrossSVG style={{ fill: "white" }} color={"white"} />
+          <CrossSVG
+            style={{ fill: "white" }}
+            color={"white"}
+            // className={styles.searchPanel_cross}
+          />
         </div>
       </div>
     </div>

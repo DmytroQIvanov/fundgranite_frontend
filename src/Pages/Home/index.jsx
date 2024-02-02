@@ -13,7 +13,7 @@ import LastActivity from "../../Components/LastActivity";
 import MainHomeBlock from "../../Components/MainHomeBlock";
 import ScrollTrigger from "../../Components/ScrollTrigger";
 
-const HomePage = () => {
+const HomePage = ({ onPageAnim }) => {
   const { t, i18n } = useTranslation();
 
   return (
@@ -24,7 +24,7 @@ const HomePage = () => {
         "Фонд, Granite Fund, fund, ЗСУ, дрони, волонтери, волонтерство, збір, разом переможемо, внесок, Fund, Granite Fund, fund, Armed Forces of Ukraine, drones, volunteers, volunteering, collection, together we will win, contribution"
       }
     >
-      <MainHomeBlock />
+      <MainHomeBlock onPageAnim={onPageAnim} />
       {/*<div*/}
       {/*  style={{*/}
       {/*    width: "80%",*/}

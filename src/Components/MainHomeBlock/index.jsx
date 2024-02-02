@@ -4,7 +4,7 @@ import { ReactComponent as ControlArrow } from "../../Assets/right-arrow-svgrepo
 import PostSlider from "./PostSlider";
 import postImg from "./369115593_301046379171998_5060290123796350086_n.jpg";
 
-const MainHomeBlock = () => {
+const MainHomeBlock = ({ onPageAnim }) => {
   const postsArray = [
     {
       imgUrl:
@@ -83,7 +83,12 @@ const MainHomeBlock = () => {
                 in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                 nulla pariatur.
               </span>
-              <div className={styles.mainHomeBlock_containerMain_supportBtn}>
+              <div
+                className={styles.mainHomeBlock_containerMain_supportBtn}
+                onClick={() => {
+                  onPageAnim({ url: "/donate" });
+                }}
+              >
                 ПІДТРИМАТИ
               </div>
             </span>

@@ -225,7 +225,7 @@ const PageWrapper = ({
                 }}
               />
             </div>
-            <div style={{ marginTop: "20px" }}>
+            <div style={{ marginTop: "20px" }} className={"prevent-select"}>
               <ReButton
                 type={"brownBorder"}
                 onClick={() => {

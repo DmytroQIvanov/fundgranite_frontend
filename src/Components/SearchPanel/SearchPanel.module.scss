@@ -1,11 +1,13 @@
 @import "../../mixins";
 @import "../../Styles";
+@import "../../screens";
 .searchPanel {
   &_container {
     @include insideBorderPC;
     background-color: $green;
     border-radius: 10px;
     height: 50px;
+    //height: max-content;
     padding: 10px;
     display: flex;
   }
@@ -22,4 +24,34 @@
       box-shadow: none;
     }
   }
+  &cross{
+    //img{
+    //width: 130px;
+    //
+    //}
+    //&__active{
+    //  width: 100%;
+    //}
+  }
+  @media screen and (max-width: $small) {
+  &_container {
+    @include insideBorderMobile;
+  }
+    input{
+      padding: 8px;
+    }
+  &cross{
+
+    img{
+      height: 100px;
+    }
+
+      height: 100px;
+    svg{
+      height: 100px;
+    }
+  }
+
+  }
+
 }

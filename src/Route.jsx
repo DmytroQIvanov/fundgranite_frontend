@@ -27,7 +27,7 @@ const Router = () => {
       path: "",
       element: (
         <PageWrapper header footer subheaderLogo>
-          {(props) => <HomePage />}
+          {(props) => <HomePage {...props} />}
         </PageWrapper>
       ),
     },
@@ -36,7 +36,7 @@ const Router = () => {
       path: "donate",
       element: (
         <PageWrapper header footer>
-          {(props) => <DonatePage />}
+          {(props) => <DonatePage {...props} />}
         </PageWrapper>
       ),
     },
@@ -45,7 +45,7 @@ const Router = () => {
       path: "aboutUs",
       element: (
         <PageWrapper header footer>
-          {(props) => <AboutUs />}
+          {(props) => <AboutUs {...props} />}
         </PageWrapper>
       ),
     },
@@ -72,7 +72,7 @@ const Router = () => {
       path: "public-offer",
       element: (
         <PageWrapper header footer>
-          {(props) => <PublicOffer />}
+          {(props) => <PublicOffer {...props} />}
         </PageWrapper>
       ),
     },
@@ -84,7 +84,7 @@ const Router = () => {
       // children: [],
       element: (
         <PageWrapper header footer subheaderLogo>
-          {(props) => <HomePage />}
+          {(props) => <HomePage {...props} />}
 
           {/*{(props) => <Redirect {...props} />}*/}
         </PageWrapper>

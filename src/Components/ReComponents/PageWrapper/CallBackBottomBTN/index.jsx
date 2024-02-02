@@ -13,7 +13,7 @@ const CallBackBottomBTN = ({ onClick }) => {
     //     position: "sticky",
     //   }}
     // >
-    <div className={styles.callBackBTN} onClick={onClick}>
+    <div className={`${styles.callBackBTN} prevent-select`} onClick={onClick}>
       <PhoneSVG />
     </div>
     // </div>

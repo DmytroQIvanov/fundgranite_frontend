@@ -10,21 +10,28 @@ const PostSlider = ({ postArray }) => {
   const [maxPost, setMaxPost] = useState(0);
   const [animStarted, setAnimStarted] = useState(false);
   const [currentDirection, setCurrentDirection] = useState(null);
+  const [arrowsState, setArrowsState] = useState({ right: false, left: false });
   const arrayLength = postArray.length;
   let intervalValue;
   const onArrowClick = ({ direction }) => {
     if (animStarted) return;
     setAnimStarted(true);
     setCurrentDirection(direction);
+
+    if (direction === "prev") {
+      setArrowsState({ ...arrowsState, right: true });
+      setTimeout(() => {
+        setArrowsState({ ...arrowsState, right: false });
+      }, 200);
+    } else {
+      setArrowsState({ ...arrowsState, left: true });
+      setTimeout(() => {
+        setArrowsState({ ...arrowsState, left: false });
+      }, 200);
+    }
+
     setTimeout(() => {
       const newCurrentPost = direction === "next" ? nextPost : prevPost;
-      let newNextPost;
-      let newPrevPost;
-      if (direction === "next") {
-        newPrevPost = currentPost - 1;
-      } else {
-        newNextPost = currentPost;
-      }
 
       if (!postArray?.[newCurrentPost + 1]) {
         setNextPost(0);
@@ -40,7 +47,7 @@ const PostSlider = ({ postArray }) => {
       setCurrentPost(newCurrentPost);
       setAnimStarted(false);
       setCurrentDirection(null);
-    }, [400]);
+    }, 400);
   };
 
   useEffect(() => {
@@ -56,14 +63,22 @@ const PostSlider = ({ postArray }) => {
     <div className={styles.postSlider}>
       <div className={styles.postSlider_container}>
         <div
-          className={styles.postSlider_container_controlArrowLeft}
+          className={`${styles.postSlider_container_controlArrowLeft} ${
+            arrowsState.left
+              ? styles.postSlider_container_controlArrowLeft__active
+              : ""
+          }`}
           onClick={() => onArrowClick({ direction: "next" })}
         >
           <ControlArrow />
         </div>
 
         <div
-          className={styles.postSlider_container_controlArrowRight}
+          className={`${styles.postSlider_container_controlArrowRight} ${
+            arrowsState.right
+              ? styles.postSlider_container_controlArrowRight__active
+              : ""
+          }`}
           onClick={() => onArrowClick({ direction: "prev" })}
         >
           <ControlArrow />
