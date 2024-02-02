@@ -9,7 +9,7 @@ const MainHomeBlock = ({ onPageAnim }) => {
     {
       imgUrl:
         "https://gdb.rferl.org/058a0000-0aff-0242-08ec-08dae78d2203_w1023_r1_s.jpg",
-      title: "Lorem text for example",
+      title: "Текст для перевірки слайду",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -19,7 +19,7 @@ const MainHomeBlock = ({ onPageAnim }) => {
     },
     {
       imgUrl: "https://antytila.ua/wp-content/uploads/2022/08/5-scaled.jpg",
-      title: "Lorem text for example2",
+      title: "Більше тексту для перевірки слайду",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -30,7 +30,8 @@ const MainHomeBlock = ({ onPageAnim }) => {
 
     {
       imgUrl: postImg,
-      title: "Lorem text for example3",
+      title:
+        "Дуже довга назва для перевірки слайду. Lorem ipsum dolor sit amet ",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
